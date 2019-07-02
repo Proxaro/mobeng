@@ -32,10 +32,12 @@ public class LeanToDo implements CommandLineRunner {
 
     @Autowired
     private RoleRepository roleRepository;
-
     
     @Autowired
     private ToDoRepository toDoRepository;
+
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -65,13 +67,23 @@ public class LeanToDo implements CommandLineRunner {
         userRepository.save(u);
 
         ToDo toDo = new ToDo();
-        toDo.setTitle("Finish This app");
+        toDo.setTitle("Task 1");
         toDo.setOwner("user");
         toDoRepository.save(toDo);
 
-        toDo = new ToDo();
-        toDo.setTitle("Reply to student");
-        toDo.setOwner("user");
-        toDoRepository.save(toDo);
+        ToDo toDo2 = new ToDo();
+        toDo2.setTitle("Task 2");
+        toDo2.setOwner("user");
+        toDoRepository.save(toDo2);
+
+        Project project1 = new Project();
+        project1.setTitle("Project 1");
+        project1.setOwner("user");
+        projectRepository.save(project1);
+
+        Project project2 = new Project();
+        project2.setTitle("Project 2");
+        project2.setOwner("user");
+        projectRepository.save(project2);
     }
 }
