@@ -21,7 +21,7 @@ public class ProjectController {
 
 
     public List<Project> listAllProjects(String loginName) {
-        return projectRepository.findByOwner(loginName);
+        return projectRepository.findAllButArchivedByOwner(loginName);
     }
 
     public void persistProject(Project newProject, String owner) {

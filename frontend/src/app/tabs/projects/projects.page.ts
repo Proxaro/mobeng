@@ -33,7 +33,9 @@ export class ProjectsPage implements OnInit {
         }, {
           text: 'Finish',
           handler: () => {
-            console.log('Confirm Okay');
+            console.log('Project Finished');
+            project.archived = true;
+            this.reloadAllProjects;
           }
         }
       ]
@@ -44,13 +46,13 @@ export class ProjectsPage implements OnInit {
 
   //on project edit button
   async edit(project: Project){
-    const alert = await this.alertController.create({
+    /*const alert = await this.alertController.create({
       header: 'Edit Project',
       message: 'This will lead to the project edit page of ' + project.title,
       buttons: ['OK']
     });
 
-    await alert.present();
+    await alert.present();*/
   }
 
   public reloadAllProjects() {

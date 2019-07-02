@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
+import lombok.Data;
 
 @Entity
 public class Project {
@@ -23,6 +25,7 @@ public class Project {
     private String title;
 
     private String owner;
+    
     private Boolean archived;
 
     @Temporal(TemporalType.DATE)
