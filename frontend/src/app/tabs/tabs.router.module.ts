@@ -35,6 +35,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'newproject',
+        children: [
+          {
+            path: '',
+            loadChildren: './newproject/newproject.module#NewprojectPageModule'
+          }
+        ]
+      },
+      {
+        path: 'newtask',
+        children: [
+          {
+            path: '',
+            loadChildren: './newtask/newtask.module#NewtaskPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/timerecord',
         pathMatch: 'full'
