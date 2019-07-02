@@ -61,6 +61,9 @@ public class LeanToDo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        
+        Date d = new Date ();
+        
         User u = new User();
         u.setLoginName("user");
         u.setPasswordHash(new BCryptPasswordEncoder().encode("user"));
@@ -74,25 +77,28 @@ public class LeanToDo implements CommandLineRunner {
         toDo.setTitle("Task 1");
         toDo.setOwner("user");
         toDo.setPrio("Hoch");
+        toDo.setDateAb(d);
+        toDo.setDateBis(d);
         toDoRepository.save(toDo);
 
         ToDo toDo2 = new ToDo();
         toDo2.setTitle("Task 2");
         toDo2.setOwner("user");
         toDo2.setPrio("Mittel");
+        toDo2.setDateAb(d);
+        toDo2.setDateBis(d);
         toDoRepository.save(toDo2);
 
         Project project1 = new Project();
         project1.setTitle("Project 1");
         project1.setOwner("user");
-        Date d = new Date ();
         project1.setDeadline(d);
         projectRepository.save(project1);
 
         Project project2 = new Project();
         project2.setTitle("Project 2");
         project2.setOwner("user");
-        project1.setDeadline(null);
+        project2.setDeadline(d);
         projectRepository.save(project2);
     }
 }
