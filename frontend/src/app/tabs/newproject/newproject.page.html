@@ -5,22 +5,32 @@
 </ion-header>
 
 <ion-content>
-    <ion-list>
-        <ion-item>
-          <ion-input placeholder="Name"></ion-input>
-        </ion-item>
-        
-        <ion-item-divider></ion-item-divider>
-        <ion-item>
-          <ion-label>Start Date</ion-label>
-          <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="Datum auswählen"></ion-datetime>
-        </ion-item>
-      </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="Projektname"></ion-input>
+    </ion-item>
 
+    <ion-item-divider></ion-item-divider>
+    <ion-item>
+      <ion-label>Deadline:</ion-label>
+      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="Datum auswählen" min="2015-01-01" max="2099-12-31"></ion-datetime>
+    </ion-item>
+
+    <br>
+    <br>
+
+    <ion-button color="primary">
+      Speichern
+    </ion-button>
+
+    <ion-button color="light">
+      Abbruch
+    </ion-button>
+
+  </ion-list>
 </ion-content>
-
 
 <script language="javascript" type="text/javascript">
   var d = new Date();
-  document.write(d.getDate()+"."+d.getMonth()+"."+(d.getYear()+1900));
+  document.write(d.getDate() + "." + d.getMonth() + "." + (d.getYear() + 1900));
 </script>
