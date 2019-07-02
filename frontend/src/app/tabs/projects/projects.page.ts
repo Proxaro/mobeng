@@ -13,7 +13,7 @@ export class ProjectsPage implements OnInit {
   constructor(private router: Router, private projectService: ProjectService) { }
 
   public allProjects: Project[] = [];
-  //public newProject: Project = new Project();
+  public newProject: Project = new Project();
 
   ngOnInit() {
     this.reloadAllProjects();
