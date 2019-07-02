@@ -35,13 +35,27 @@ export class ProjectsPage implements OnInit {
           handler: () => {
             console.log('Project Finished');
             project.archived = true;
-            this.reloadAllProjects;
+            this.projectService.updateProject(project).subscribe(
+              data => {
+                console.log("Successfully updated project.");
+                this.reloadAllProjects();
+              }, err => {
+                console.log(err);
+                this.router.navigateByUrl('/login');
+              }
+            );
           }
         }
       ]
     });
 
     await alert.present();
+  }
+
+  //refresh projects
+  async doRefresh(event) {
+    this.reloadAllProjects();
+    event.target.complete();
   }
 
   //on project edit button

@@ -18,11 +18,11 @@ export class ProjectService {
 
   /*public addNewToDo(newToDo: ToDo) {
     return this.http.post(this.apiUrl + '/api/todo', newToDo, { withCredentials: true });
-  }
-
-  public updateToDo(toDo: ToDo) {
-    console.log("###");
-    console.log(toDo);
-    return this.http.put(this.apiUrl + '/api/todo', toDo, { withCredentials: true });
   }*/
+
+  public updateProject(project: Project) {
+    console.log("###");
+    console.log(project);
+    return this.http.put(this.apiUrl + '/api/project', project, { withCredentials: true });
+  }
 }
