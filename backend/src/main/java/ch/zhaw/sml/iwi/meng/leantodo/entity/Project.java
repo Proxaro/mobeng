@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import java.util.Date;
 
 @Entity
 public class Project {
@@ -19,6 +23,9 @@ public class Project {
     private String title;
 
     private String owner;
+
+    @Temporal(TemporalType.DATE)
+    private Date deadline;
 
     @OneToMany
     private List<ToDo> toDos = new ArrayList<>();
@@ -47,6 +54,14 @@ public class Project {
         this.owner = owner;
     }
 
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
+
     public List<ToDo> getToDos() {
         return toDos;
     }
@@ -55,6 +70,4 @@ public class Project {
         this.toDos = toDos;
     }
 
-    
-    
 }

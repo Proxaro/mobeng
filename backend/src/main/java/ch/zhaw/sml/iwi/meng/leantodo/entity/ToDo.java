@@ -3,9 +3,11 @@ package ch.zhaw.sml.iwi.meng.leantodo.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import java.util.Date;
 import lombok.Data;
 
 /**
@@ -26,6 +28,14 @@ public class ToDo {
 
     @JsonIgnore
     private String owner;
+
+    @Temporal(TemporalType.DATE)
+    private Date dateab;
+
+    @Temporal(TemporalType.DATE)
+    private Date datebis;
+
+    private String prio;
 
     /**
      * @return the id
@@ -95,6 +105,30 @@ public class ToDo {
      */
     public void setOwner(String owner) {
         this.owner = owner;
+    }
+
+    public Date getDateAb(){
+        return dateab;
+    }
+
+    public void setDateAb(Date dateab){
+        this.dateab = dateab;
+    }
+    
+    public Date getDateBis(){
+        return datebis;
+    }
+
+    public void setDateBis(Date datebis){
+        this.datebis = datebis;
+    }
+
+    public String getPrio(){
+        return prio;
+    }
+
+    public void setPrio(String prio){
+        this.prio = prio;
     }
     
 }
