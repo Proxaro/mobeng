@@ -13,6 +13,12 @@
          {{project.title}}
           </ion-col>
           <ion-col>
+              <ion-button color="danger" (click)="finish(project)" float-right>
+                Finish
+              </ion-button>
+              <ion-button icon-only (click)="edit(project)" float-right>
+                <ion-icon name="create" ></ion-icon>
+              </ion-button>
             <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
             <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
           --></ion-col>
@@ -21,11 +27,11 @@
     </ion-item>
   </ion-list>
  
-  <ion-item>
-    <!--<ion-input type="text" placeholder="New Project Title" [(ngModel)]="newProject.title"></ion-input>-->
-  </ion-item>
+  <!--<ion-item>
+    <ion-input type="text" placeholder="New Project Title" [(ngModel)]="newProject.title"></ion-input>
+  </ion-item>-->
 
-  <div padding>
+  <!--<div padding>
     <ion-button (click)="addProject()">Add New Project</ion-button>
-  </div>
+  </div>-->
 </ion-content>
