@@ -1,21 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>projects</ion-title>
+    <ion-title>Active Projects</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let project of allProjectss">
+    <ion-item *ngFor="let project of allProjects">
       <ion-grid>
         <ion-row>
           <ion-col>
-            {{project.title}}
+         {{project.title}}
           </ion-col>
           <ion-col>
-            <ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
+            <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
             <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
-          </ion-col>
+          --></ion-col>
         </ion-row>
       </ion-grid>
     </ion-item>
