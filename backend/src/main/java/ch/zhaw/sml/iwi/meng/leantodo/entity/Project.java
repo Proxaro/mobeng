@@ -23,6 +23,7 @@ public class Project {
     private String title;
 
     private String owner;
+    private Boolean archived;
 
     @Temporal(TemporalType.DATE)
     private Date deadline;
@@ -32,6 +33,14 @@ public class Project {
 
     public Long getId() {
         return id;
+    }
+
+    public Boolean getArchived() {
+        return archived;
+    }
+
+    public void setArchived(Boolean archived) {
+        this.archived = archived;
     }
 
     public void setId(Long id) {
