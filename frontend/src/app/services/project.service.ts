@@ -1,0 +1,28 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Project } from '../model/project';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProjectService {
+
+  constructor(private http: HttpClient, private router: Router) { }
+  private apiUrl: string = 'http://localhost:8080';
+
+  public getAllProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>(this.apiUrl + '/api/project', { withCredentials: true });
+  }
+
+  /*public addNewToDo(newToDo: ToDo) {
+    return this.http.post(this.apiUrl + '/api/todo', newToDo, { withCredentials: true });
+  }
+
+  public updateToDo(toDo: ToDo) {
+    console.log("###");
+    console.log(toDo);
+    return this.http.put(this.apiUrl + '/api/todo', toDo, { withCredentials: true });
+  }*/
+}
