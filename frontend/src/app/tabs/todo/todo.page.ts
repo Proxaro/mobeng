@@ -35,12 +35,17 @@ export class TodoPage implements OnInit {
     }
   }*/
 
-  async finish(toDo: ToDo) {
+  /*async finish(toDo: ToDo) {
       toDo.done = true;
       this.updateToDo(toDo);
-  }
+  }*/
 
-  async archive(toDo: ToDo) {
+  /*async archive(toDo: ToDo) {
+    toDo.archived = true;
+    this.updateToDo(toDo);
+  }*/
+
+  async finish(toDo: ToDo) {
     toDo.archived = true;
     this.updateToDo(toDo);
   }
