@@ -14,13 +14,13 @@ export class TodoPage implements OnInit {
   constructor(private router: Router, private toDoService: TodoService) { }
 
   public allToDos: ToDo[] = [];
-  public newToDo: ToDo = new ToDo();
+  //public newToDo: ToDo = new ToDo();
   
   ngOnInit() {
     this.reloadAllToDos();
   }
 
-  async addToDo() {
+  /*async addToDo() {
     if (this.newToDo.title != null && this.newToDo.title != "") {
       this.toDoService.addNewToDo(this.newToDo).subscribe(
         data => {
@@ -33,7 +33,7 @@ export class TodoPage implements OnInit {
         }
       );
     }
-  }
+  }*/
 
   async finish(toDo: ToDo) {
       toDo.done = true;
@@ -68,10 +68,10 @@ export class TodoPage implements OnInit {
     );
   }
 
-    //refresh projects
-    async doRefresh(event) {
-      this.reloadAllToDos();
-      event.target.complete();
-    }
+  //refresh projects
+  async doRefresh(event) {
+    this.reloadAllToDos();
+    event.target.complete();
+  }
 
 }
