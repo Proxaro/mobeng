@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import ch.zhaw.sml.iwi.meng.leantodo.controller.ProjectController;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.Project;
@@ -34,9 +35,9 @@ public class ProjectEndpoint {
         projectController.updateProject(project, principal.getName());
     }
 
-    @RequestMapping(path = "/api/project/3", method = RequestMethod.GET)
+    @RequestMapping(path = "/api/project/{id}", method = RequestMethod.GET)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
-    public Project getProject(@RequestParam(name="projectID") Long projectID, Principal principal) {
-        return projectController.getOne(Long.valueOf(3));
+    public Project getProject(@PathVariable("id") Long projectID, Principal principal) {
+        return projectController.getOne(projectID);
     }
 }
