@@ -16,8 +16,11 @@ export class ProjectsPage implements OnInit {
   public allProjects: Project[] = [];
   public newProject: Project = new Project();
 
+  percent: number;
+
   ngOnInit() {
     this.reloadAllProjects();
+
   }
 
   //on project finish button

@@ -33,6 +33,7 @@ this.color = 'danger';
 }
 
 ngOnInit() {
+  setTimeout(()=>{this.number=1},100)
 }
 
 }
