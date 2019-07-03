@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TodoService } from 'src/app/services/todo.service';
 import { ToDo } from 'src/app/model/todo';
+import { TodoService } from 'src/app/services/todo.service';
+
 
 @Component({
   selector: 'app-todo',
@@ -14,6 +15,7 @@ export class TodoPage implements OnInit {
 
   public allToDos: ToDo[] = [];
   public newToDo: ToDo = new ToDo();
+  
   ngOnInit() {
     this.reloadAllToDos();
   }
@@ -66,8 +68,10 @@ export class TodoPage implements OnInit {
     );
   }
 
-  
-
-
+    //refresh projects
+    async doRefresh(event) {
+      this.reloadAllToDos();
+      event.target.complete();
+    }
 
 }

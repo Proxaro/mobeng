@@ -5,8 +5,14 @@
 </ion-header>
 
 <ion-content>
-
-
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content 
+      pullingIcon="arrow-dropdown" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-item *ngFor="let todo of allToDos">
       <ion-grid>
@@ -15,19 +21,21 @@
             {{todo.title}}
           </ion-col>
           <ion-col>
-            <ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
-            <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
+            <ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();" float-right>Finish</ion-button>
+            <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();" float-right>Archive</ion-button>
+            <ion-button icon-only [routerLink]="['/tabs/newtask']" float-right>
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-item>
   </ion-list>
- 
-  <ion-item>
-    <ion-input type="text" placeholder="New Todo Title" [(ngModel)]="newToDo.title"></ion-input>
-  </ion-item>
-  <div padding>
-    <ion-button (click)="addToDo()">Add New ToDo</ion-button>
-  </div>
+  <!--<ion-item>
+    <ion-input type="text" placeholder="New Project Title" [(ngModel)]="newProject.title"></ion-input>
+  </ion-item>-->
 
+  <!--<div padding>
+    <ion-button (click)="addProject()">Add New Project</ion-button>
+  </div>-->
 </ion-content>

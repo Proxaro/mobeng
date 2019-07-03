@@ -21,21 +21,18 @@
             {{project.title}}
           </ion-col>
           <ion-col>
-              <ion-button color="danger" (click)="finish(project)" float-right>
-                Finish
-              </ion-button>
+              <ion-button color="danger" (click)="finish(project)" float-right>Finish</ion-button>
               <ion-button icon-only [routerLink]="['/tabs/newproject']" float-right>
                 <ion-icon name="create" ></ion-icon>
               </ion-button>
-            <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
-            <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
-          --></ion-col>
+              <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
+              <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>-->
+            </ion-col>
         </ion-row>
       </ion-grid>
     </ion-item>
   </ion-list>
- 
-  <!--<ion-item>
+   <!--<ion-item>
     <ion-input type="text" placeholder="New Project Title" [(ngModel)]="newProject.title"></ion-input>
   </ion-item>-->
 

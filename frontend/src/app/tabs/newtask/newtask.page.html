@@ -1,5 +1,13 @@
 <ion-header>
   <ion-toolbar>
+      
+          <ion-buttons slot="secondary" [routerLink]="['/tabs/todo']">
+            <ion-button>
+              <ion-icon color="primary" name="arrow-round-back"></ion-icon>
+            </ion-button>
+            <ion-button color="primary">Back</ion-button>
+          </ion-buttons>
+
     <ion-title>New ToDo</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -31,9 +39,8 @@
         <ion-item-divider></ion-item-divider>
         <ion-item>
             <ion-label>Priority:</ion-label>
-            <ion-range min="1" max="5" step="1" value="3" snaps ticks>
-            <ion-icon slot="start" color="primary" name="alert"></ion-icon>
-            <ion-icon slot="end" color="danger" name="alert"></ion-icon>
+            <ion-range [color]="color" min="1" max="4" step="1" value="1" pin="true" snaps ticks [(ngModel)]="number" (ionChange)="onRangeChangeHandler()">
+            <ion-icon [color]="color"slot="start" name="alert"></ion-icon>
           </ion-range>
         </ion-item>
 
@@ -41,10 +48,6 @@
         <br>
         <ion-button color="primary">
           Save
-        </ion-button>
-
-        <ion-button color="light">
-          Back
         </ion-button>
 
       </ion-list>
