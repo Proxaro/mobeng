@@ -20,12 +20,21 @@
         </ion-item>
 
         <ion-item>
+          <ion-label>Project:</ion-label>
+          <ion-select>
+            <ion-select-option value="cat">...</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item-divider></ion-item-divider>
+        <ion-item>
           <ion-label>User:</ion-label>
-          <ion-chip class="ion-margin-start">
+          <ion-chip class="ion-margin-start" float-right>
             <ion-label>...</ion-label>
           </ion-chip>
         </ion-item>
 
+        <ion-item-divider></ion-item-divider>
         <ion-item>
             <ion-label>Start:</ion-label>
             <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="start" min="2019-01-01" max="2999-12-31"></ion-datetime>
