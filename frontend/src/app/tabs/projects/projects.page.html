@@ -23,7 +23,7 @@
             </ion-col>
             <ion-col><ion-badge color="light">3/8</ion-badge></ion-col>
             <ion-col>
-                <ion-button icon-only [routerLink]="['/tabs/editproject']" float-right>
+                <ion-button icon-only (click)="edit(project)" float-right>
                   <ion-icon name="create" ></ion-icon>
                 </ion-button>
               <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>

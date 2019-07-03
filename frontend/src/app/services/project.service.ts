@@ -16,6 +16,10 @@ export class ProjectService {
     return this.http.get<Project[]>(this.apiUrl + '/api/project', { withCredentials: true });
   }
 
+  public getProject(projectID: string): Observable<Project[]> {
+    return this.http.get<Project[]>(this.apiUrl + '/api/project', { withCredentials: true });
+  }
+
   /*public addNewToDo(newToDo: ToDo) {
     return this.http.post(this.apiUrl + '/api/todo', newToDo, { withCredentials: true });
   }*/

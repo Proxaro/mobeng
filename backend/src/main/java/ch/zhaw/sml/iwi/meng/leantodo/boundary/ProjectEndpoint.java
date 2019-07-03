@@ -33,4 +33,10 @@ public class ProjectEndpoint {
     public void updateProject(@RequestBody Project project, Principal principal) {
         projectController.updateProject(project, principal.getName());
     }
+
+    @RequestMapping(path = "/api/project/3", method = RequestMethod.GET)
+    @PreAuthorize("isAuthenticated() AND hasRole('USER')")
+    public Project getProject(@RequestParam(name="projectID") Long projectID, Principal principal) {
+        return projectController.getOne(Long.valueOf(3));
+    }
 }
