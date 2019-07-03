@@ -21,18 +21,28 @@ public class ProjectController {
 
 
     public List<Project> listAllProjects(String loginName) {
-        return projectRepository.findByOwner(loginName);
+        return projectRepository.findAllButArchivedByOwner(loginName);
     }
 
-    public void persistProject(Project newProject, String owner) {
+    public void updateProject(Project project, String owner) {
+        Project orig = projectRepository.getOne(project.getId());
+        // Check if the original Project was present and that it belonged to the same owner
+        if(orig == null || !orig.getOwner().equals(owner)) {
+            return;
+        }
+        // Ok, let's overwrite the existing project.
+        projectRepository.save(project);
+    }
+
+    /*public void persistProject(Project newProject, String owner) {
         newProject.setId(null);
         // We only create empty projects
         newProject.getToDos().clear();
         newProject.setOwner(owner);
         projectRepository.save(newProject);
-    }
+    }*/
 
-    public void addToDo(Long projectId, ToDo toDo, String owner) {
+    /*public void addToDo(Long projectId, ToDo toDo, String owner) {
         Project project = projectRepository.getOne(projectId);
         if(project == null || !project.getOwner().equals(owner)) {
             return;
@@ -42,6 +52,6 @@ public class ProjectController {
         toDo.setOwner(owner);
         project.getToDos().add(toDo);
         projectRepository.save(project);
-    }
+    }*/
     
 }

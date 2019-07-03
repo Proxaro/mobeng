@@ -5,18 +5,26 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-item *ngFor="let project of allProjects">
       <ion-grid>
         <ion-row>
           <ion-col>
-         {{project.title}}
+            {{project.title}}
           </ion-col>
           <ion-col>
               <ion-button color="danger" (click)="finish(project)" float-right>
                 Finish
               </ion-button>
-              <ion-button icon-only (click)="edit(project)" float-right>
+              <ion-button icon-only [routerLink]="['/tabs/newproject']" float-right>
                 <ion-icon name="create" ></ion-icon>
               </ion-button>
             <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
