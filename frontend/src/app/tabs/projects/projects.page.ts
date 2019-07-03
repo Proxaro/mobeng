@@ -22,34 +22,17 @@ export class ProjectsPage implements OnInit {
 
   //on project finish button
   async finish(project: Project){
-    const alert = await this.alertController.create({
-      header: 'Finish Project',
-      message: 'Are you sure you want to finish ' + project.title + '?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary'
-        }, {
-          text: 'Finish',
-          handler: () => {
-            console.log('Project Finished');
-            project.archived = true;
-            this.projectService.updateProject(project).subscribe(
-              data => {
-                console.log("Successfully updated project.");
-                this.reloadAllProjects();
-              }, err => {
-                console.log(err);
-                this.router.navigateByUrl('/login');
-              }
-            );
-          }
-        }
-      ]
-    });
-
-    await alert.present();
+    console.log('Project Finished');
+    project.archived = true;
+    this.projectService.updateProject(project).subscribe(
+      data => {
+        console.log("Successfully updated project.");
+        this.reloadAllProjects();
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/login');
+      }
+    );
   }
 
   //refresh projects

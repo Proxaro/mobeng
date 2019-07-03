@@ -50,7 +50,8 @@ public class LeanToDo implements CommandLineRunner {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                     // This is only really relevant for development, where we have different servers for frontend and backend
-                    .allowedOrigins("http://localhost:8100")
+                    //.allowedOrigins("http://localhost:8100")
+                    .allowedOrigins("*")
                     .allowedMethods("GET", "PUT", "POST", "DELETE")
                     // AllowCredentials is necessary, as it sets 'Access-Control-Allow-Credentials'. 
                     // Otherwise Angular's HttpClient will not pass the Cookie back.
@@ -102,5 +103,12 @@ public class LeanToDo implements CommandLineRunner {
         project2.setArchived(false);
         project2.setDeadline(d);
         projectRepository.save(project2);
+
+        Project project3 = new Project();
+        project3.setTitle("Project 3");
+        project3.setOwner("user");
+        project3.setArchived(false);
+        project3.setDeadline(d);
+        projectRepository.save(project3);
     }
 }
