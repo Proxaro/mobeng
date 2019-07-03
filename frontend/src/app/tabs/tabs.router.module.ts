@@ -53,6 +53,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'editproject',
+        children: [
+          {
+            path: '',
+            loadChildren: './editproject/editproject.module#EditprojectPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/timerecord',
         pathMatch: 'full'
