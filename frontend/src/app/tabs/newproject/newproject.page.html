@@ -1,5 +1,14 @@
 <ion-header>
   <ion-toolbar>
+
+      <ion-buttons slot="secondary" [routerLink]="['/tabs/projects']">
+        <ion-button>
+          <ion-icon color="primary" name="arrow-round-back"></ion-icon>
+        </ion-button>
+        <ion-button color="primary">Back</ion-button>
+      </ion-buttons>
+
+
     <ion-title>New Project</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,15 +25,8 @@
       <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31"></ion-datetime>
     </ion-item>
 
-    <br>
-    <br>
-
-    <ion-button color="primary">
+    <ion-button color="primary" class="root">
       Save
-    </ion-button>
-
-    <ion-button color="light">
-      Back
     </ion-button>
 
   </ion-list>
