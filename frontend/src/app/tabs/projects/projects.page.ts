@@ -46,13 +46,7 @@ export class ProjectsPage implements OnInit {
 
   //on project edit button
   async edit(project: Project){
-    /*const alert = await this.alertController.create({
-      header: 'Edit Project',
-      message: 'This will lead to the project edit page of ' + project.title,
-      buttons: ['OK']
-    });
-
-    await alert.present();*/
+    this.router.navigate(['/tabs/editproject', project.id]);
   }
 
   public reloadAllProjects() {

@@ -44,7 +44,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'editproject',
+        path: 'editproject/:id',
         children: [
           {
             path: '',

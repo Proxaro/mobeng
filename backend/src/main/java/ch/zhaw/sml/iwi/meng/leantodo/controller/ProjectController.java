@@ -24,6 +24,10 @@ public class ProjectController {
         return projectRepository.findAllButArchivedByOwner(loginName);
     }
 
+    public Project getOne(Long projectID) {
+        return projectRepository.getOne(projectID);
+    }
+
     public void updateProject(Project project, String owner) {
         Project orig = projectRepository.getOne(project.getId());
         // Check if the original Project was present and that it belonged to the same owner
