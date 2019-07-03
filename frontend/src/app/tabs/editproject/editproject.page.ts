@@ -15,19 +15,19 @@ export class EditprojectPage implements OnInit {
 
   constructor(private router: Router, private projectService: ProjectService, private toDoService: TodoService, private activatedRoute:ActivatedRoute) { }
 
-  
-  public Project: Project[];
+  public project: Project;
 
   ngOnInit() {
     this.loadProject();
   }
 
   public loadProject() {
+  
     this.projectID = this.activatedRoute.snapshot.paramMap.get("id");
 
     this.projectService.getProject(this.projectID).subscribe(
-      data => {
-        this.Project = data;
+      (project: Project) => {
+        this.project = project;
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/');
