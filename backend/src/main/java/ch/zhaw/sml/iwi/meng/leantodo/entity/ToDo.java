@@ -37,11 +37,21 @@ public class ToDo {
 
     private String prio;
 
+    private Integer project;
+
     /**
      * @return the id
      */
     public Long getId() {
         return id;
+    }
+
+    public Integer getProject() {
+        return project;
+    }
+
+    public void setProject(Integer project) {
+        this.project = project;
     }
 
     /**
