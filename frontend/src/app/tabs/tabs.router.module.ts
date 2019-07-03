@@ -26,15 +26,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'timerecord',
-        children: [
-          {
-            path: '',
-            loadChildren: './timerecord/timerecord.module#TimerecordPageModule'
-          }
-        ]
-      },
-      {
         path: 'newproject',
         children: [
           {
@@ -44,11 +35,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'newtask',
+        path: 'newtodo',
         children: [
           {
             path: '',
-            loadChildren: './newtask/newtask.module#NewtaskPageModule'
+            loadChildren: './newtodo/newtodo.module#NewtodoPageModule'
           }
         ]
       },
@@ -62,15 +53,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'edittodo',
+        children: [
+          {
+            path: '',
+            loadChildren: './edittodo/edittodo.module#EdittodoPageModule'
+          }
+        ]
+      },
+      {
         path: '',
-        redirectTo: '/tabs/timerecord',
+        redirectTo: '/tabs/todo',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/timerecord',
+    redirectTo: '/tabs/todo',
     pathMatch: 'full'
   }
 ];
