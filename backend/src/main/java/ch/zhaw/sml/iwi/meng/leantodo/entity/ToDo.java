@@ -25,8 +25,7 @@ public class ToDo {
 
     private boolean archived = false;
     private boolean done = false;
-
-    @JsonIgnore
+    
     private String owner;
 
     @Temporal(TemporalType.DATE)
