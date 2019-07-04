@@ -20,15 +20,17 @@ public class ProjectController {
     @Autowired
     private ToDoRepository toDoRepository;
 
-
+    //get all active projects by owner
     public List<Project> listAllProjects(String loginName) {
         return projectRepository.findAllButArchivedByOwner(loginName);
     }
 
+    //get single project by ID
     public Optional<Project> getProjectById(Long projectID) {
         return projectRepository.findById(projectID);
     }
 
+    //update project
     public void updateProject(Project project, String owner) {
         Project orig = projectRepository.getOne(project.getId());
         // Check if the original Project was present and that it belonged to the same owner
@@ -39,24 +41,11 @@ public class ProjectController {
         projectRepository.save(project);
     }
 
-    /*public void persistProject(Project newProject, String owner) {
+    //add new project
+    public void addProject(Project newProject) {
         newProject.setId(null);
-        // We only create empty projects
         newProject.getToDos().clear();
-        newProject.setOwner(owner);
         projectRepository.save(newProject);
-    }*/
-
-    /*public void addToDo(Long projectId, ToDo toDo, String owner) {
-        Project project = projectRepository.getOne(projectId);
-        if(project == null || !project.getOwner().equals(owner)) {
-            return;
-        }  
-        // Ensure that JPA creates a new entity
-        toDo.setId(null);
-        toDo.setOwner(owner);
-        project.getToDos().add(toDo);
-        projectRepository.save(project);
-    }*/
+    }
     
 }

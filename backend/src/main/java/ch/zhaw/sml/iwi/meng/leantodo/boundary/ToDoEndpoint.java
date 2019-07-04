@@ -30,7 +30,7 @@ public class ToDoEndpoint {
     @RequestMapping(path = "/api/todo", method = RequestMethod.POST)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
     public void addToDo(@RequestBody ToDo newToDo, Principal principal) {
-        toDoController.persistToDo(newToDo, principal.getName());
+        toDoController.addToDo(newToDo, principal.getName());
     }
     
     @RequestMapping(path = "/api/todo", method = RequestMethod.PUT)
@@ -44,10 +44,4 @@ public class ToDoEndpoint {
     public Optional<ToDo> getToDo(@PathVariable("id") Long toDoID, Principal principal) {
         return toDoController.getToDoById(toDoID);
     }
-
-    /*@RequestMapping(path = "/api/todo/{id}", method = RequestMethod.GET)
-    @PreAuthorize("isAuthenticated() AND hasRole('USER')")
-    public Project getToDo(@PathVariable("todo") Long todoID, Principal principal) {
-        return projectController.getById(todoID);
-    }*/
 }

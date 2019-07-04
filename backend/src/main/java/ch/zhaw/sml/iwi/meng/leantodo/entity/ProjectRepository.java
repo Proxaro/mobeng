@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-//import org.springframework.data.jpa.repository.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -18,5 +17,4 @@ public interface ProjectRepository extends JpaRepository<Project, Long>
     @Query("SELECT t FROM Project as t WHERE t.owner = ?1 AND t.archived = false")
     public List<Project> findAllButArchivedByOwner(String owner);
 
-    //public List<Project> findByOwnerAndArchivedFalse(String owner);
 }
