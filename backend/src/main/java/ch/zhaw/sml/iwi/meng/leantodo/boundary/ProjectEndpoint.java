@@ -2,6 +2,7 @@ package ch.zhaw.sml.iwi.meng.leantodo.boundary;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,12 @@ public class ProjectEndpoint {
     public List<Project> getProjects(Principal principal) {
         return projectController.listAllProjects(principal.getName());
     }
+
+    @RequestMapping(path = "/api/project", method = RequestMethod.POST)
+    @PreAuthorize("isAuthenticated() AND hasRole('USER')")
+    public void addProject(@RequestBody Project newProject, Principal principal) {
+        projectController.addProject(newProject);
+    }
     
     @RequestMapping(path = "/api/project", method = RequestMethod.PUT)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
@@ -35,8 +42,8 @@ public class ProjectEndpoint {
 
     @RequestMapping(path = "/api/project/{id}", method = RequestMethod.GET)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
-    public Project getProject(@PathVariable("id") Long projectID, Principal principal) {   
-        return projectController.getOne(projectID);
+    public Optional<Project> getProject(@PathVariable("id") Long projectID, Principal principal) {
+        return projectController.getProjectById(projectID);
     }
 
 }
