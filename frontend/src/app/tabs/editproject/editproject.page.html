@@ -1,13 +1,11 @@
 <ion-header>
   <ion-toolbar>
-
-      <ion-buttons slot="secondary" [routerLink]="['/tabs/projects']">
-        <ion-button>
-          <ion-icon color="primary" name="arrow-round-back"></ion-icon>
-        </ion-button>
-        <ion-button color="primary">Back</ion-button>
-      </ion-buttons>
-
+    
+    <ion-buttons slot="start" [routerLink]="['/tabs/projects']" >
+      <ion-button>
+        <ion-icon color="primary" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
 
     <ion-title>Edit: "{{project.title}}"</ion-title>
   </ion-toolbar>
