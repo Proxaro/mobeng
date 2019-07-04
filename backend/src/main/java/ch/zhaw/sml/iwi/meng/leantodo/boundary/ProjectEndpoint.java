@@ -2,6 +2,7 @@ package ch.zhaw.sml.iwi.meng.leantodo.boundary;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class ProjectEndpoint {
 
     @RequestMapping(path = "/api/project/{id}", method = RequestMethod.GET)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
-    public Project getProject(@PathVariable("id") Long projectID, Principal principal) {
-        return projectController.getOne(projectID);
+    public Optional<Project> getProject(@PathVariable("id") Long projectID, Principal principal) {
+        return projectController.getProjectById(projectID);
     }
 }

@@ -36,4 +36,10 @@ public class ToDoEndpoint {
     public void updateToDo(@RequestBody ToDo toDo, Principal principal) {
         toDoController.updateToDo(toDo, principal.getName());
     }
+
+    /*@RequestMapping(path = "/api/todo/{id}", method = RequestMethod.GET)
+    @PreAuthorize("isAuthenticated() AND hasRole('USER')")
+    public Project getToDo(@PathVariable("todo") Long todoID, Principal principal) {
+        return projectController.getById(todoID);
+    }*/
 }

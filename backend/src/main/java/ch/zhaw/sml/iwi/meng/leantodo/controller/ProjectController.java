@@ -1,6 +1,7 @@
 package ch.zhaw.sml.iwi.meng.leantodo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,8 +25,8 @@ public class ProjectController {
         return projectRepository.findAllButArchivedByOwner(loginName);
     }
 
-    public Project getOne(Long projectID) {
-        return projectRepository.getOne(projectID);
+    public Optional<Project> getProjectById(Long projectID) {
+        return projectRepository.findById(projectID);
     }
 
     public void updateProject(Project project, String owner) {
