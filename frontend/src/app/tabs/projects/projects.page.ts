@@ -20,7 +20,10 @@ export class ProjectsPage implements OnInit {
 
   ngOnInit() {
     this.reloadAllProjects();
+  }
 
+  ionViewWillEnter() {
+    this.ngOnInit();
   }
 
   //on project finish button

@@ -20,6 +20,10 @@ export class TodoPage implements OnInit {
     this.reloadAllToDos();
   }
 
+  ionViewWillEnter() {
+    this.ngOnInit();
+  }
+
   /*async addToDo() {
     if (this.newToDo.title != null && this.newToDo.title != "") {
       this.toDoService.addNewToDo(this.newToDo).subscribe(
