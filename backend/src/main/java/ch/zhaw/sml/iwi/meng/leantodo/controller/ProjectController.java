@@ -44,6 +44,7 @@ public class ProjectController {
     //add new project
     public void addProject(Project newProject) {
         newProject.setId(null);
+        newProject.setArchived(false);
         newProject.getToDos().clear();
         projectRepository.save(newProject);
     }

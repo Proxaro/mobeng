@@ -34,7 +34,7 @@ export class EditprojectPage implements OnInit {
         this.project = project;
       }, err => {
         console.log(err);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/login');
       }
     );
     this.userService.getUsers().subscribe(
@@ -43,7 +43,7 @@ export class EditprojectPage implements OnInit {
         console.log(this.users);
       }, err => {
         console.log(err);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/login');
       }
     );
   }

@@ -22,16 +22,14 @@ export class ProjectService {
     return this.http.get<Project>(this.apiUrl + '/api/project/'+projectID, {withCredentials: true });
   }
 
-  /*public addNewToDo(newToDo: ToDo) {
-    return this.http.post(this.apiUrl + '/api/todo', newToDo, { withCredentials: true });
-  }*/
+  public addNewProject(newProject: Project) {
+    return this.http.post(this.apiUrl + '/api/project', newProject, { withCredentials: true });
+  }
 
   public updateProject(project: Project) {
     console.log("###");
     console.log(project);
     
-
-
     return this.http.put(this.apiUrl + '/api/project', project, { withCredentials: true });
     
   }

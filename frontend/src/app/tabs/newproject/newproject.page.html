@@ -13,27 +13,27 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label class="label">name:</ion-label>
-      <ion-input placeholder="project name"></ion-input>
+      <ion-label class="label">Name:</ion-label>
+      <ion-input placeholder="project name" [(ngModel)]="newProject.title" ></ion-input>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">deadline:</ion-label>
-      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31">
+      <ion-label class="label">Deadline:</ion-label>
+      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31" [(ngModel)]="newProject.deadline" >
       </ion-datetime>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">owner:</ion-label>
-      <ion-select>
-        <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
+      <ion-label class="label">Project Owner:</ion-label>
+      <ion-select [(ngModel)]="newProject.owner" >
+        <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i"  >
           {{users[i]}}</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-button color="primary" class="root">
+    <ion-button color="primary" class="root" (click)="addProject()">
       Save
     </ion-button>
 
