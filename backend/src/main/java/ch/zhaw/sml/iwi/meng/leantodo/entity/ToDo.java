@@ -34,7 +34,7 @@ public class ToDo {
     @Temporal(TemporalType.DATE)
     private Date datebis;
 
-    private String prio;
+    private Integer prio;
 
     private Integer project;
 
@@ -132,11 +132,11 @@ public class ToDo {
         this.datebis = datebis;
     }
 
-    public String getPrio(){
+    public Integer getPrio(){
         return prio;
     }
 
-    public void setPrio(String prio){
+    public void setPrio(Integer prio){
         this.prio = prio;
     }
     

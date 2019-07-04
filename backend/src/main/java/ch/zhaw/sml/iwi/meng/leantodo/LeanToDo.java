@@ -84,19 +84,35 @@ public class LeanToDo implements CommandLineRunner {
 
         ToDo toDo = new ToDo();
         toDo.setTitle("Task 1");
-        toDo.setOwner("test");
-        toDo.setPrio("Hoch");
+        toDo.setOwner("user");
+        toDo.setPrio(4);
         toDo.setDateAb(d);
         toDo.setDateBis(d);
         toDoRepository.save(toDo);
 
+        ToDo toDo1 = new ToDo();
+        toDo1.setTitle("Task 2");
+        toDo1.setOwner("user");
+        toDo1.setPrio(3);
+        toDo1.setDateAb(d);
+        toDo1.setDateBis(d);
+        toDoRepository.save(toDo1);
+
         ToDo toDo2 = new ToDo();
-        toDo2.setTitle("Task 2");
-        toDo2.setOwner("user");
-        toDo2.setPrio("Mittel");
+        toDo2.setTitle("Task 3");
+        toDo2.setOwner("test");
+        toDo2.setPrio(2);
         toDo2.setDateAb(d);
         toDo2.setDateBis(d);
         toDoRepository.save(toDo2);
+
+        ToDo toDo3 = new ToDo();
+        toDo3.setTitle("Task 4");
+        toDo3.setOwner("test");
+        toDo3.setPrio(3);
+        toDo3.setDateAb(d);
+        toDo3.setDateBis(d);
+        toDoRepository.save(toDo3);
 
         Project project1 = new Project();
         project1.setTitle("Project 1");
@@ -118,5 +134,12 @@ public class LeanToDo implements CommandLineRunner {
         project3.setArchived(false);
         project3.setDeadline(d);
         projectRepository.save(project3);
+
+        Project project4 = new Project();
+        project4.setTitle("Project 4");
+        project4.setOwner("test");
+        project4.setArchived(false);
+        project4.setDeadline(d);
+        projectRepository.save(project4);
     }
 }

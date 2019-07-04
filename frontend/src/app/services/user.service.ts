@@ -4,10 +4,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
 
-
-
-
-
 @Injectable({
   providedIn: 'root'
 })

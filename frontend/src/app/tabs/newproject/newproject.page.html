@@ -1,32 +1,36 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start" [routerLink]="['/tabs/projects']" >
-        <ion-button>
-          <ion-icon color="primary" name="arrow-round-back"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    <ion-title>New Project</ion-title>
+    <ion-buttons slot="start" [routerLink]="['/tabs/projects']">
+      <ion-button>
+        <ion-icon color="primary" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title class="label">new project</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-item>
+      <ion-label class="label">name:</ion-label>
       <ion-input placeholder="project name"></ion-input>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label>Deadline:</ion-label>
-      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31"></ion-datetime>
+      <ion-label class="label">deadline:</ion-label>
+      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31">
+      </ion-datetime>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label>User:</ion-label>
-      <ion-chip class="ion-margin-start" float-right>
-        <ion-label>...</ion-label>
-      </ion-chip>
+      <ion-label class="label">owner:</ion-label>
+      <ion-select>
+        <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
+          {{users[i]}}</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-button color="primary" class="root">
