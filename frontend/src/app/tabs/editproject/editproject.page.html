@@ -26,7 +26,7 @@
     <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">owner:</ion-label>
-      <ion-select placeholder='{{project.owner}}'>
+      <ion-select value='{{project.owner}}' placeholder="Person wählen">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>
