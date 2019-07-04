@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Project } from '../../model/project';
+import { User } from '../../model/user';
 import { TodoService } from 'src/app/services/todo.service';
 import { ProjectService } from '../../services/project.service';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-editproject',
@@ -13,9 +16,10 @@ export class EditprojectPage implements OnInit {
 
   projectID = null;
 
-  constructor(private router: Router, private projectService: ProjectService, private toDoService: TodoService, private activatedRoute:ActivatedRoute) { }
+  constructor(private router: Router, private projectService: ProjectService, private userService: UserService, private toDoService: TodoService, private activatedRoute:ActivatedRoute) { }
 
   public project: Project;
+  public users: User;
 
   ngOnInit() {
     this.loadProject();
@@ -33,5 +37,15 @@ export class EditprojectPage implements OnInit {
         this.router.navigateByUrl('/');
       }
     );
+    this.userService.getUsers().subscribe(
+      (users: User) => {
+        this.users = users;
+        console.log(this.users);
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/');
+      }
+    );
+  
   }
 }

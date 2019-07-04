@@ -7,29 +7,37 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title>Edit: "{{project.title}}"</ion-title>
+    <ion-title class="label">Edit: "{{project.title}}"</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-item>
-        <ion-label>Name:</ion-label>
+        <ion-label class="label">Name:</ion-label>
         <ion-input placeholder="project name" [(ngModel)]="project.title" float-right></ion-input>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label>Deadline:</ion-label>
+      <ion-label class="label">Deadline:</ion-label>
       <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31" [(ngModel)]="project.deadline"></ion-datetime>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label>Owner:</ion-label>
+      <ion-label class="label">Owner:</ion-label>
       <ion-chip class="ion-margin-start">
           <ion-label>{{project.owner}}</ion-label>
       </ion-chip>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Project:</ion-label>
+      <ion-select >
+        <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">{{users[i]}}</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-button color="primary" class="root">

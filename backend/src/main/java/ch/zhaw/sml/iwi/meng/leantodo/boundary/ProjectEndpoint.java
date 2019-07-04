@@ -9,13 +9,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import ch.zhaw.sml.iwi.meng.leantodo.controller.ProjectController;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.Project;
-import ch.zhaw.sml.iwi.meng.leantodo.entity.ToDo;
 
 @RestController
 public class ProjectEndpoint {
@@ -37,7 +35,8 @@ public class ProjectEndpoint {
 
     @RequestMapping(path = "/api/project/{id}", method = RequestMethod.GET)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
-    public Project getProject(@PathVariable("id") Long projectID, Principal principal) {
+    public Project getProject(@PathVariable("id") Long projectID, Principal principal) {   
         return projectController.getOne(projectID);
     }
+
 }

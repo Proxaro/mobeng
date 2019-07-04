@@ -27,6 +27,9 @@ public class User {
     @ManyToMany
     private List<ToDo> toDos = new ArrayList<>();
 
+    @ManyToMany
+    private List<Project> projects = new ArrayList<>();
+
     /**
      * @return the loginName
      */
@@ -82,5 +85,22 @@ public class User {
     public void setToDos(List<ToDo> toDos) {
         this.toDos = toDos;
     }
+
+
+    /**
+     * @return the Projects
+     */
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    /**
+     * @param projects
+     */
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
+
 
 }

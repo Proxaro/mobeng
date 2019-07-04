@@ -68,15 +68,23 @@ public class LeanToDo implements CommandLineRunner {
         User u = new User();
         u.setLoginName("user");
         u.setPasswordHash(new BCryptPasswordEncoder().encode("user"));
+        
+        User u1 = new User();
+        u1.setLoginName("test");
+        u1.setPasswordHash(new BCryptPasswordEncoder().encode("test"));
+
+
         Role r = new Role();
         r.setRoleName("ROLE_USER");
         roleRepository.save(r);
         u.getRoles().add(r);
         userRepository.save(u);
+        u1.getRoles().add(r);
+        userRepository.save(u1);
 
         ToDo toDo = new ToDo();
         toDo.setTitle("Task 1");
-        toDo.setOwner("user");
+        toDo.setOwner("test");
         toDo.setPrio("Hoch");
         toDo.setDateAb(d);
         toDo.setDateBis(d);
@@ -106,7 +114,7 @@ public class LeanToDo implements CommandLineRunner {
 
         Project project3 = new Project();
         project3.setTitle("Project 3");
-        project3.setOwner("user");
+        project3.setOwner("test");
         project3.setArchived(false);
         project3.setDeadline(d);
         projectRepository.save(project3);
