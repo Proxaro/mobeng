@@ -13,8 +13,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long>
 {
     public List<Project> findByOwner(String owner);
 
-    //@Query("SELECT t FROM Project as t WHERE t.id = ?1")
-    //@Query
     public Optional<Project> findById(Long id);
 
     @Query("SELECT t FROM Project as t WHERE t.owner = ?1 AND t.archived = false")

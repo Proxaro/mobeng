@@ -1,6 +1,7 @@
 package ch.zhaw.sml.iwi.meng.leantodo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,10 @@ public class ToDoController {
 
     public List<ToDo> listAllToDos(String loginName) {
         return toDoRepository.findAllButArchivedByOwner(loginName);
+    }
+
+    public Optional<ToDo> getToDoById(Long toDoID) {
+        return toDoRepository.findById(toDoID);
     }
 
     public void persistToDo(ToDo newToDo, String owner) {
