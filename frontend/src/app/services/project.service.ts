@@ -29,6 +29,10 @@ export class ProjectService {
   public updateProject(project: Project) {
     console.log("###");
     console.log(project);
+    
+
+
     return this.http.put(this.apiUrl + '/api/project', project, { withCredentials: true });
+    
   }
 }

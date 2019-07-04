@@ -20,8 +20,7 @@
     <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">deadline:</ion-label>
-      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31"
-        [(ngModel)]="project.deadline"></ion-datetime>
+      <ion-datetime value='{{project.deadline}}' displayFormat="DD. MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31" [(ngModel)]="project.deadline"></ion-datetime>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
@@ -33,7 +32,7 @@
       </ion-select>
     </ion-item>
 
-    <ion-button color="primary" class="root">
+    <ion-button color="primary" class="root" (click)="save(project)">
       Save
     </ion-button>
 

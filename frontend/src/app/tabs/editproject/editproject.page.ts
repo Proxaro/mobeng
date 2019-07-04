@@ -46,6 +46,17 @@ export class EditprojectPage implements OnInit {
         this.router.navigateByUrl('/');
       }
     );
-  
+  }
+
+  //on project save button
+  async save(project: Project){
+    this.projectService.updateProject(project).subscribe(
+      data => {
+        this.router.navigateByUrl('/tabs/projects');
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/login');
+      }
+    );
   }
 }
