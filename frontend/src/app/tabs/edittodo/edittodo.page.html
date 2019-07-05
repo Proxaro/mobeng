@@ -17,11 +17,13 @@
       <ion-input placeholder="ToDo" [(ngModel)]="toDo.title"></ion-input>
     </ion-item>
 
+    
+
     <ion-item>
       <ion-label class="label">Project:</ion-label>
       <ion-select  value='{{toDo.project}}' placeholder="Choose a project">
-          <ion-select-option value='{{projects[i]}}' *ngFor="let project of projects;  let i = index" [attr.data-index]="i">
-            {{projects[i]}}</ion-select-option>
+        <ion-select-option value='{{project.title}}' *ngFor="let project of projects;  let i = index" [attr.data-index]="i">
+            {{project.title}}</ion-select-option>
         </ion-select>
       </ion-item>
 

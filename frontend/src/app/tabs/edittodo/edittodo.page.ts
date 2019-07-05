@@ -44,19 +44,21 @@ export class EdittodoPage implements OnInit {
   }
 
   ngOnInit() {
-    this.onRangeChangeHandler()
+    
     this.loadProject();
     
   }
 
   public loadProject() {
 
+    
+
     this.toDoID = this.activatedRoute.snapshot.paramMap.get("id");
 
     this.todoService.getToDo(this.toDoID).subscribe(
       (todo: ToDo) => {
         this.toDo = todo;
-        console.log(this.toDo);
+        this.onRangeChangeHandler()
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/');
@@ -80,5 +82,7 @@ export class EdittodoPage implements OnInit {
         this.router.navigateByUrl('/');
       }
     );
+
+    
   }
 }
