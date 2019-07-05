@@ -7,8 +7,12 @@
   font-weight: bold;
 }
 
+ion-button {
+  margin-top: 0;
+}
+
 .deadline { 
-  ion-icon, ion-button {
+  ion-icon, ion-badge {
     display: inline-block;
     float: left;
   }
@@ -17,8 +21,8 @@
     color: red;
     padding-right: 5px;
   }
-  ion-button {
-    top: 0;
-    margin-top: 0;
+  ion-badge {
+    font-size: 14px;
+    padding: 5px;
   }
 }

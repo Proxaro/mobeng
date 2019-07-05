@@ -20,7 +20,7 @@
             </ion-col>
             <ion-col size="6" *ngIf="todo.dateBis !== null" class="deadline">
               <ion-icon name="alarm"></ion-icon>
-              <ion-button>{{todo.dateBis}}</ion-button>
+              <ion-badge color="light">{{todo.dateBis}}</ion-badge>
             </ion-col>
             <ion-col>
               <ion-button icon-only (click)="edit(todo)" float-right>
