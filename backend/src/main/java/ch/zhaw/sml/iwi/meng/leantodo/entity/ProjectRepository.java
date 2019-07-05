@@ -14,7 +14,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long>
 
     public Optional<Project> findById(Long id);
 
-    @Query("select p.id, p.title, count(*) as total, sum(case when t.archived = true then 1 else 0 end) as finished from ToDo as t, Project as p where t.project = p.id and (p.owner = ?1 and p.archived = false) group by p.title")
-    public List<Project> findAllButArchivedByOwner(String owner);
+    /*@Query("select p.id, p.title, count(*) as total, sum(case when t.archived = true then 1 else 0 end) as finished from ToDo as t, Project as p where t.project = p.id and (p.owner = ?1 and p.archived = false) group by p.title")
+    public List<Project> findAllButArchivedByOwner(String owner);*/
 
 }
