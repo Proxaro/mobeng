@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from '../../model/project';
+import { ProjectList } from '../../model/projectList';
 import { ProjectService } from '../../services/project.service';
 import { AlertController } from '@ionic/angular';
 
@@ -13,8 +14,7 @@ export class ProjectsPage implements OnInit {
 
   constructor(private router: Router, private projectService: ProjectService, public alertController: AlertController) { }
 
-  public allProjects: Project[] = [];
-  public newProject: Project = new Project();
+  public allProjects: ProjectList[] = [];
 
   percent: number;
 
