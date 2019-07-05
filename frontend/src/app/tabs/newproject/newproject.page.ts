@@ -30,27 +30,28 @@ export class NewprojectPage implements OnInit {
     );
   }
 
-  async presentToast(){
-    console.log("test");
+  async presentToast(text: string, type: string){
     const toast = await this.toastController.create({
-      message: 'New Project has been added',
+      message: text,
       duration: 2000,
-      color: "success"
+      color: type
     });
     toast.present();
   }
 
   async addProject(){
-    if (this.newProject.title != null && this.newProject.title != "") {
+    if (this.newProject.title != null && this.newProject.title != "" && this.newProject.deadline != null && this.newProject.owner != null) {
       this.projectService.addNewProject(this.newProject).subscribe(
         data => {
           this.newProject = new Project();
-          this.presentToast();
+          this.presentToast("Project has been added", "success");
         }, err => {
           console.log(err);
           this.router.navigateByUrl('/login');
         }
       );
+    }else{
+      this.presentToast("Please provide the required information", "danger");
     }
   }
 
