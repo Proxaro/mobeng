@@ -24,7 +24,6 @@ public class ToDo {
     private String title;
 
     private boolean archived = false;
-    private boolean done = false;
     
     private String owner;
 
@@ -86,20 +85,6 @@ public class ToDo {
      */
     public void setArchived(boolean archived) {
         this.archived = archived;
-    }
-
-    /**
-     * @return the done
-     */
-    public boolean isDone() {
-        return done;
-    }
-
-    /**
-     * @param done the done to set
-     */
-    public void setDone(boolean done) {
-        this.done = done;
     }
 
     /**

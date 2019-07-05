@@ -46,7 +46,7 @@ export class EdittodoPage implements OnInit {
   ngOnInit() {
 
     this.loadProject();
-  
+
   }
 
   public loadProject() {
@@ -80,7 +80,18 @@ export class EdittodoPage implements OnInit {
         this.router.navigateByUrl('/');
       }
     );
+  }
 
-
+  //on todo save button
+  async save(toDo: ToDo) {
+    console.log(toDo);
+    this.todoService.updateToDo(toDo).subscribe(
+      data => {
+        this.router.navigateByUrl('/tabs/todo');
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/login');
+      }
+    );
   }
 }

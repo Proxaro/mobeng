@@ -5,7 +5,7 @@
         <ion-icon color="primary" name="arrow-round-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="label">Edit: "{{toDo.title}}"</ion-title>
+    <ion-title class="label">Edit: "{{toDo?.title}}"</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,16 +19,15 @@
 
     <ion-item>
       <ion-label class="label">Project:</ion-label>
-      <ion-select value='{{toDo.project}}' placeholder="Choose a project">
-        <ion-select-option value='{{project.title}}' *ngFor="let project of projects;  let i = index"
-          [attr.data-index]="i">
+      <ion-select [(ngModel)]="toDo.project" >
+        <ion-select-option *ngFor="let project of projects" [(value)]="project.id">
           {{project.title}}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">ToDo Owner:</ion-label>
-      <ion-select value='{{toDo.owner}}' placeholder="Choose a owner">
+      <ion-select value='{{toDo.owner}}' placeholder="Choose a owner" [(ngModel)]="toDo.owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>
@@ -37,14 +36,14 @@
     <ion-item>
       <ion-label class="label">Start:</ion-label>
       <ion-datetime value='{{toDo.dateAb}}' displayFormat="DD. MMMM YYYY" placeholder="start" min="2019-01-01"
-        max="2999-12-31">
+        max="2999-12-31" [(ngModel)]="toDo.dateAb">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">End:</ion-label>
       <ion-datetime value='{{toDo.dateBis}}' displayFormat="DD. MMMM YYYY" placeholder="end" min="2019-01-01"
-        max="2999-12-31">
+        max="2999-12-31" [(ngModel)]="toDo.dateBis">
       </ion-datetime>
     </ion-item>
 
@@ -56,7 +55,7 @@
       </ion-range>
     </ion-item>
 
-    <ion-button color="primary" class="root">
+    <ion-button color="primary" class="root" (click)="save(toDo)">
       Save
     </ion-button>
 
