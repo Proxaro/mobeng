@@ -21,7 +21,7 @@
             <ion-col>
               {{project.title}}
             </ion-col>
-            <ion-col><ion-badge color="light">{{project.not_archived}}/{{project.archived}}</ion-badge></ion-col>
+            <ion-col><ion-badge color="light">{{project.done}}/{{project.total}}</ion-badge></ion-col>
             <ion-col>
                 <ion-button icon-only (click)="edit(project)" float-right>
                   <ion-icon name="create" ></ion-icon>
