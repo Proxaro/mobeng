@@ -35,7 +35,7 @@
       <ion-item-options side="end">
         <ion-item-option color="danger" (click)="finish(project)">Finish</ion-item-option>
       </ion-item-options>
-      <ion-progress-bar [value]="percent"></ion-progress-bar>
+      <ion-progress-bar value='{{project.done}}/{{project.total}}'></ion-progress-bar>
     </ion-item-sliding>
   </ion-list>
   <!--<ion-item>
