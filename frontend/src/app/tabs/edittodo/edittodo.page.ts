@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToDo } from '../../model/todo';
 import { User } from '../../model/user';
+import { Project } from '../../model/project';
 import { UserService } from '../../services/user.service';
 import { TodoService } from 'src/app/services/todo.service';
 import { ProjectService } from '../../services/project.service';
@@ -23,6 +24,7 @@ export class EdittodoPage implements OnInit {
 
   public users: User;
   public toDo: ToDo;
+  public projects: Project;
 
   onRangeChangeHandler() {
 
@@ -64,6 +66,15 @@ export class EdittodoPage implements OnInit {
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/');
+      }
+    );
+
+    this.projectService.getProjects().subscribe(
+      (projects: Project) => {
+        this.projects = projects;
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/');

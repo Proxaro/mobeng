@@ -37,6 +37,7 @@ export class EditprojectPage implements OnInit {
         this.router.navigateByUrl('/login');
       }
     );
+    
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;

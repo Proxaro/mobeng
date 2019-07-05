@@ -19,10 +19,11 @@
 
     <ion-item>
       <ion-label class="label">Project:</ion-label>
-      <ion-select  value='{{toDo.project}}' placeholder="Choose a owner">
-        <ion-select-option value="cat">...</ion-select-option>
-      </ion-select>
-    </ion-item>
+      <ion-select  value='{{toDo.project}}' placeholder="Choose a project">
+          <ion-select-option value='{{projects[i]}}' *ngFor="let project of projects;  let i = index" [attr.data-index]="i">
+            {{projects[i]}}</ion-select-option>
+        </ion-select>
+      </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
@@ -62,11 +63,3 @@
   </ion-list>
 
 </ion-content>
-
-<script language="javascript" type="text/javascript">
-
-  var d = new Date();
-  document.write(d.getDate() + "." + d.getMonth() + "." + (d.getYear() + 1900));
-
-
-</script>
