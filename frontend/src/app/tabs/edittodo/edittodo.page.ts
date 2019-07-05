@@ -6,6 +6,7 @@ import { Project } from '../../model/project';
 import { UserService } from '../../services/user.service';
 import { TodoService } from 'src/app/services/todo.service';
 import { ProjectService } from '../../services/project.service';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class EdittodoPage implements OnInit {
 
   toDoID = null;
 
-  constructor(private router: Router, private projectService: ProjectService, private todoService: TodoService, private userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private toastController: ToastController, private router: Router, private projectService: ProjectService, private todoService: TodoService, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   public users: User;
   public toDo: ToDo;
@@ -28,17 +29,18 @@ export class EdittodoPage implements OnInit {
 
   onRangeChangeHandler() {
 
-    if (this.toDo.prio <= 1) {
-      this.color = 'success';
-
-    } else if (this.toDo.prio == 2) {
+    if (this.toDo.prio == 2) {
       this.color = 'primary';
 
     } else if (this.toDo.prio == 3) {
       this.color = 'warning';
 
-    } else {
+    } else if (this.toDo.prio == 4) {
       this.color = 'danger';
+
+    } else {
+      this.color = 'success';
+
     }
 
   }
@@ -56,7 +58,7 @@ export class EdittodoPage implements OnInit {
     this.todoService.getToDo(this.toDoID).subscribe(
       (todo: ToDo) => {
         this.toDo = todo;
-        this.onRangeChangeHandler()
+        this.onRangeChangeHandler();
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/');
@@ -82,16 +84,29 @@ export class EdittodoPage implements OnInit {
     );
   }
 
+  async presentToast(text: string, type: string){
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 2000,
+      color: type
+    });
+    toast.present();
+  }
+
   //on todo save button
   async save(toDo: ToDo) {
-    console.log(toDo);
-    this.todoService.updateToDo(toDo).subscribe(
-      data => {
-        this.router.navigateByUrl('/tabs/todo');
-      }, err => {
-        console.log(err);
-        this.router.navigateByUrl('/login');
-      }
-    );
+    if (this.toDo.title != null && this.toDo.title != "" && this.toDo.owner != null && this.toDo.owner != "") {
+      this.todoService.updateToDo(toDo).subscribe(
+        data => {
+          this.presentToast("Task has been updated", "success");
+          this.router.navigateByUrl('/tabs/todo');
+        }, err => {
+          console.log(err);
+          this.router.navigateByUrl('/login');
+        }
+      );
+    } else{
+      this.presentToast("Please provide the required information", "danger");
+    }
   }
 }

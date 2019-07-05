@@ -45,12 +45,13 @@ export class NewprojectPage implements OnInit {
         data => {
           this.newProject = new Project();
           this.presentToast("Project has been added", "success");
+          this.router.navigateByUrl('/tabs/projects');
         }, err => {
           console.log(err);
           this.router.navigateByUrl('/login');
         }
       );
-    }else{
+    } else{
       this.presentToast("Please provide the required information", "danger");
     }
   }

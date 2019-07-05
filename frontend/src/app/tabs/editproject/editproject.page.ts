@@ -5,6 +5,7 @@ import { User } from '../../model/user';
 import { TodoService } from 'src/app/services/todo.service';
 import { ProjectService } from '../../services/project.service';
 import { UserService } from '../../services/user.service';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class EditprojectPage implements OnInit {
 
   projectID = null;
 
-  constructor(private router: Router, private projectService: ProjectService, private userService: UserService, private toDoService: TodoService, private activatedRoute: ActivatedRoute) { }
+  constructor(private toastController: ToastController, private router: Router, private projectService: ProjectService, private userService: UserService, private toDoService: TodoService, private activatedRoute: ActivatedRoute) { }
 
   public project: Project;
   public users: User;
@@ -48,15 +49,29 @@ export class EditprojectPage implements OnInit {
     );
   }
 
+  async presentToast(text: string, type: string){
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 2000,
+      color: type
+    });
+    toast.present();
+  }
+
   //on project save button
   async save(project: Project) {
-    this.projectService.updateProject(project).subscribe(
-      data => {
-        this.router.navigateByUrl('/tabs/projects');
-      }, err => {
-        console.log(err);
-        this.router.navigateByUrl('/login');
-      }
-    );
+    if (this.project.title != null && this.project.title != "" && this.project.deadline != null && this.project.owner != null) {
+      this.projectService.updateProject(project).subscribe(
+        data => {
+          this.presentToast("Project has been updated", "success");
+          this.router.navigateByUrl('/tabs/projects');
+        }, err => {
+          console.log(err);
+          this.router.navigateByUrl('/login');
+        }
+      );
+    } else{
+      this.presentToast("Please provide the required information", "danger");
+    }
   }
 }

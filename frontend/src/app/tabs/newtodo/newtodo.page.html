@@ -14,7 +14,7 @@
 
     <ion-item>
       <ion-label class="label">Name:</ion-label>
-      <ion-input [(ngModel)]="newToDo.title"></ion-input>
+      <ion-input [(ngModel)]="newToDo.title" placeholder="Choose a name"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -26,35 +26,32 @@
       </ion-select>
     </ion-item>
 
-    <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Owner:</ion-label>
-      <ion-select [(ngModel)]="newToDo.owner" placeholder="Choose a owner">
+      <ion-select [(ngModel)]="newToDo.owner" placeholder="Choose an owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Start:</ion-label>
-      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="start" min="2019-01-01" max="2999-12-31"
+      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="Pick a start date" min="2019-01-01" max="2999-12-31"
         [(ngModel)]="newToDo.dateab">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">End:</ion-label>
-      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="end" min="2019-01-01" max="2999-12-31"
+      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="Pick an end date" min="2019-01-01" max="2999-12-31"
         [(ngModel)]="newToDo.datebis">
       </ion-datetime>
     </ion-item>
 
-    <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Priority:</ion-label>
       <ion-range [color]="color" min="1" max="4" step="1" value="1" pin="true" snaps ticks
-        [(ngModel)]="newToDo.priority" (ionChange)="onRangeChangeHandler()">
+        [(ngModel)]="newToDo.prio" (ionChange)="onRangeChangeHandler()">
         <ion-icon [color]="color" slot="start" name="alert"></ion-icon>
       </ion-range>
     </ion-item>

@@ -26,17 +26,18 @@ export class NewtodoPage implements OnInit {
 
   onRangeChangeHandler() {
 
-    if (this.number <= 1) {
-      this.color = 'success';
-
-    } else if (this.number == 2) {
+    if (this.newToDo.prio == 2) {
       this.color = 'primary';
 
-    } else if (this.number == 3) {
+    } else if (this.newToDo.prio == 3) {
       this.color = 'warning';
 
-    } else {
+    } else if (this.newToDo.prio == 4) {
       this.color = 'danger';
+
+    } else {
+      this.color = 'success';
+
     }
 
   }
@@ -56,7 +57,7 @@ export class NewtodoPage implements OnInit {
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;
-        console.log(this.users);
+        this.onRangeChangeHandler();
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/login');
@@ -64,28 +65,30 @@ export class NewtodoPage implements OnInit {
     );
   }
 
-  async presentToast() {
-    console.log("test");
+  async presentToast(text: string, type: string){
     const toast = await this.toastController.create({
-      message: 'New ToDo has been added',
+      message: text,
       duration: 2000,
-      color: "success"
+      color: type
     });
     toast.present();
   }
 
   async addToDo() {
     console.log(this.newToDo);
-    if (this.newToDo.title != null && this.newToDo.title != "") {
+    if (this.newToDo.title != null && this.newToDo.title != "" && this.newToDo.owner != null && this.newToDo.owner != "") {
       this.toDoService.addNewToDo(this.newToDo).subscribe(
         data => {
           this.newToDo = new ToDo();
-          this.presentToast();
+          this.presentToast("Task has been added", "success");
+          this.router.navigateByUrl('/tabs/todo');
         }, err => {
           console.log(err);
           this.router.navigateByUrl('/login');
         }
       );
+    } else{
+      this.presentToast("Please provide the required information", "danger");
     }
   }
 
