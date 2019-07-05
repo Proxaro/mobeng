@@ -16,7 +16,7 @@ export class EditprojectPage implements OnInit {
 
   projectID = null;
 
-  constructor(private router: Router, private projectService: ProjectService, private userService: UserService, private toDoService: TodoService, private activatedRoute:ActivatedRoute) { }
+  constructor(private router: Router, private projectService: ProjectService, private userService: UserService, private toDoService: TodoService, private activatedRoute: ActivatedRoute) { }
 
   public project: Project;
   public users: User;
@@ -26,7 +26,7 @@ export class EditprojectPage implements OnInit {
   }
 
   public loadProject() {
-  
+
     this.projectID = this.activatedRoute.snapshot.paramMap.get("id");
 
     this.projectService.getProject(this.projectID).subscribe(
@@ -37,7 +37,7 @@ export class EditprojectPage implements OnInit {
         this.router.navigateByUrl('/login');
       }
     );
-    
+
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;
@@ -49,7 +49,7 @@ export class EditprojectPage implements OnInit {
   }
 
   //on project save button
-  async save(project: Project){
+  async save(project: Project) {
     this.projectService.updateProject(project).subscribe(
       data => {
         this.router.navigateByUrl('/tabs/projects');

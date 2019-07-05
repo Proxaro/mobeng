@@ -18,7 +18,7 @@ export class NewprojectPage implements OnInit {
   public users: User;
   public newProject: Project = new Project();
 
-  ngOnInit(){
+  ngOnInit() {
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;

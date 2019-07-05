@@ -44,14 +44,14 @@ export class EdittodoPage implements OnInit {
   }
 
   ngOnInit() {
-    
+
     this.loadProject();
-    
+
   }
 
   public loadProject() {
 
-    
+
 
     this.toDoID = this.activatedRoute.snapshot.paramMap.get("id");
 
@@ -83,6 +83,6 @@ export class EdittodoPage implements OnInit {
       }
     );
 
-    
+
   }
 }

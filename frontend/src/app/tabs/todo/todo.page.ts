@@ -41,7 +41,7 @@ export class TodoPage implements OnInit {
       }
     );
   }
-  
+
   //refresh todos
   async doRefresh(event) {
     this.reloadAllToDos();
