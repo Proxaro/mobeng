@@ -4,7 +4,9 @@ import { UserService } from '../../services/user.service';
 import { TodoService } from '../../services/todo.service';
 import { User } from '../../model/user';
 import { ToDo } from 'src/app/model/todo';
+import { Project } from '../../model/project';
 import { ToastController } from '@ionic/angular';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-newtodo',
@@ -13,15 +15,17 @@ import { ToastController } from '@ionic/angular';
 })
 export class NewtodoPage implements OnInit {
 
-  constructor(private toastController: ToastController, private toDoService: TodoService, private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private toastController: ToastController, private projectService: ProjectService, private toDoService: TodoService, private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   public users: User;
   public newToDo: ToDo = new ToDo();
+  public projects: Project;
+
   number: number = 1;
   color: string;
-  
+
   onRangeChangeHandler() {
-      
+
     if (this.number <= 1) {
       this.color = 'success';
 
@@ -39,6 +43,16 @@ export class NewtodoPage implements OnInit {
 
   ngOnInit() {
     this.onRangeChangeHandler();
+
+    this.projectService.getProjects().subscribe(
+      (projects: Project) => {
+        this.projects = projects;
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/');
+      }
+    );
+
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;
@@ -50,7 +64,7 @@ export class NewtodoPage implements OnInit {
     );
   }
 
-  async presentToast(){
+  async presentToast() {
     console.log("test");
     const toast = await this.toastController.create({
       message: 'New ToDo has been added',
@@ -60,7 +74,7 @@ export class NewtodoPage implements OnInit {
     toast.present();
   }
 
-  async addToDo(){
+  async addToDo() {
     console.log(this.newToDo);
     if (this.newToDo.title != null && this.newToDo.title != "") {
       this.toDoService.addNewToDo(this.newToDo).subscribe(
@@ -74,4 +88,5 @@ export class NewtodoPage implements OnInit {
       );
     }
   }
+
 }

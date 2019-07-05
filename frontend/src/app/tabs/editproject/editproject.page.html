@@ -23,7 +23,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label class="label">Project Owner:</ion-label>
+      <ion-label class="label">Owner:</ion-label>
       <ion-select value='{{project.owner}}' placeholder="Choose a owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
@@ -36,8 +36,3 @@
 
   </ion-list>
 </ion-content>
-
-<script language="javascript" type="text/javascript">
-  var d = new Date();
-  document.write(d.getDate() + "." + d.getMonth() + "." + (d.getYear() + 1900));
-</script>

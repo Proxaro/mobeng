@@ -18,16 +18,17 @@
     </ion-item>
 
     <ion-item>
-      <ion-label class="label">project:</ion-label>
-      <ion-select [(ngModel)]="newToDo.owner" >
-        <ion-select-option value="Project 1">Project 1</ion-select-option>
+      <ion-label class="label">Project:</ion-label>
+      <ion-select [(ngModel)]="newToDo.project"  placeholder="Choose a project">
+        <ion-select-option value='{{project.title}}' *ngFor="let project of projects;  let i = index" [attr.data-index]="i">
+          {{project.title}}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Owner:</ion-label>
-      <ion-select [(ngModel)]="newToDo.owner" >
+      <ion-select [(ngModel)]="newToDo.owner" placeholder="Choose a owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>
@@ -35,20 +36,20 @@
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">start:</ion-label>
-      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="start" min="2019-01-01" max="2999-12-31" [(ngModel)]="newToDo.dateab">
+      <ion-label class="label">Start:</ion-label>
+      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="start" min="2019-01-01" max="2999-12-31" [(ngModel)]="newToDo.dateab">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
-      <ion-label class="label">end:</ion-label>
-      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="end" min="2019-01-01" max="2999-12-31" [(ngModel)]="newToDo.datebis" >
+      <ion-label class="label">End:</ion-label>
+      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="end" min="2019-01-01" max="2999-12-31" [(ngModel)]="newToDo.datebis" >
       </ion-datetime>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">priority:</ion-label>
+      <ion-label class="label">Priority:</ion-label>
       <ion-range [color]="color" min="1" max="4" step="1" value="1" pin="true" snaps ticks [(ngModel)]="newToDo.priority"
         (ionChange)="onRangeChangeHandler()">
         <ion-icon [color]="color" slot="start" name="alert"></ion-icon>

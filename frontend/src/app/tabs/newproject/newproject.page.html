@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
     
-    <ion-title class="label">new project</ion-title>
+    <ion-title class="label">New Project</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,8 +24,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-label class="label">Project Owner:</ion-label>
-      <ion-select [(ngModel)]="newProject.owner">
+      <ion-label class="label">Owner:</ion-label>
+      <ion-select [(ngModel)]="newProject.owner" placeholder="Choose a owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>

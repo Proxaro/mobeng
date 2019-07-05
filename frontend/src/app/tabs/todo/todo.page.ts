@@ -50,7 +50,7 @@ export class TodoPage implements OnInit {
 
   //on todo edit button
   async edit(toDo: ToDo) {
-    this.router.navigate(['/tabs/edittodo', toDo[0]]);
+    this.router.navigate(['/tabs/edittodo', toDo.id]);
   }
 
   public reloadAllToDos() {
