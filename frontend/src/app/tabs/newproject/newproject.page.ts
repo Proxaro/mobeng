@@ -13,7 +13,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class NewprojectPage implements OnInit {
 
-  constructor(private toastController: ToastController, private router: Router, private userService: UserService, private activatedRoute:ActivatedRoute, private projectService: ProjectService) { }
+  constructor(private toastController: ToastController, private router: Router, private userService: UserService, private projectService: ProjectService) { }
 
   public users: User;
   public newProject: Project = new Project();
