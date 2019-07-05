@@ -18,8 +18,7 @@ export class ProjectService {
   }
 
   public getProject(projectID: string): Observable<Project> {
-
-    return this.http.get<Project>(this.apiUrl + '/api/project/'+projectID, {withCredentials: true });
+    return this.http.get<Project>(this.apiUrl + '/api/project/' + projectID, { withCredentials: true });
   }
 
   public addNewProject(newProject: Project) {
@@ -29,8 +28,6 @@ export class ProjectService {
   public updateProject(project: Project) {
     console.log("###");
     console.log(project);
-    
     return this.http.put(this.apiUrl + '/api/project', project, { withCredentials: true });
-    
   }
 }

@@ -24,7 +24,7 @@
 
     <ion-item>
       <ion-label class="label">Project Owner:</ion-label>
-      <ion-select value='{{project.owner}}' placeholder="Person wählen">
+      <ion-select value='{{project.owner}}' placeholder="Choose a owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>

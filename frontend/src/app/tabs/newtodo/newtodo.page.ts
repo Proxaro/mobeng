@@ -11,7 +11,7 @@ import { User } from '../../model/user';
 })
 export class NewtodoPage implements OnInit {
 
-  number: number;
+  number: number = 1;
   color: string;
 
   constructor(private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) { }
@@ -19,8 +19,6 @@ export class NewtodoPage implements OnInit {
   public users: User;
   
   onRangeChangeHandler() {
-
-    number: this.number = 1;
       
     if (this.number <= 1) {
       this.color = 'success';

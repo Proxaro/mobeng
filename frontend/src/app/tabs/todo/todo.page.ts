@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToDo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -11,10 +12,11 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class TodoPage implements OnInit {
 
-  constructor(private router: Router, private toDoService: TodoService) { }
+  constructor(private router: Router, private toDoService: TodoService, public alertController: AlertController) { }
 
   public allToDos: ToDo[] = [];
-  
+  public newToDo: ToDo = new ToDo();
+
   ngOnInit() {
     this.reloadAllToDos();
   }
@@ -39,6 +41,17 @@ export class TodoPage implements OnInit {
       }
     );
   }
+  
+  //refresh todos
+  async doRefresh(event) {
+    this.reloadAllToDos();
+    event.target.complete();
+  }
+
+  //on todo edit button
+  async edit(toDo: ToDo) {
+    this.router.navigate(['/tabs/edittodo', toDo[0]]);
+  }
 
   public reloadAllToDos() {
     this.toDoService.getAllToDos().subscribe(
@@ -49,12 +62,6 @@ export class TodoPage implements OnInit {
         this.router.navigateByUrl('/login');
       }
     );
-  }
-
-  //refresh projects
-  async doRefresh(event) {
-    this.reloadAllToDos();
-    event.target.complete();
   }
 
 }

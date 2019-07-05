@@ -34,9 +34,9 @@ public class ToDo {
     @Temporal(TemporalType.DATE)
     private Date datebis;
 
-    private Integer prio;
+    private int prio;
 
-    private Integer project;
+    private int project;
 
     /**
      * @return the id
@@ -45,12 +45,12 @@ public class ToDo {
         return id;
     }
 
-    public Integer getProject() {
+    public int getProject() {
         return project;
     }
 
-    public void setProject(Integer project) {
-        this.project = project;
+    public void setProject(int i) {
+        this.project = i;
     }
 
     /**
@@ -132,12 +132,12 @@ public class ToDo {
         this.datebis = datebis;
     }
 
-    public Integer getPrio(){
+    public int getPrio(){
         return prio;
     }
 
-    public void setPrio(Integer prio){
-        this.prio = prio;
+    public void setPrio(int i){
+        this.prio = i;
     }
     
 }
