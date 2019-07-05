@@ -5,7 +5,7 @@
         <ion-icon color="primary" name="arrow-round-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="label">new ToDo</ion-title>
+    <ion-title class="label">New ToDo</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,12 +13,12 @@
   <ion-list>
 
     <ion-item>
-      <ion-label class="label">name:</ion-label>
+      <ion-label class="label">Name:</ion-label>
       <ion-input placeholder="ToDo"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label class="label">project:</ion-label>
+      <ion-label class="label">Project:</ion-label>
       <ion-select>
         <ion-select-option value="cat">...</ion-select-option>
       </ion-select>
@@ -26,7 +26,7 @@
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">owner:</ion-label>
+      <ion-label class="label">ToDo Owner:</ion-label>
       <ion-select>
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
@@ -35,20 +35,20 @@
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">start:</ion-label>
+      <ion-label class="label">Start:</ion-label>
       <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="start" min="2019-01-01" max="2999-12-31">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
-      <ion-label class="label">end:</ion-label>
+      <ion-label class="label">End:</ion-label>
       <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="end" min="2019-01-01" max="2999-12-31">
       </ion-datetime>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">priority:</ion-label>
+      <ion-label class="label">Priority:</ion-label>
       <ion-range [color]="color" min="1" max="4" step="1" value="1" pin="true" snaps ticks [(ngModel)]="number"
         (ionChange)="onRangeChangeHandler()">
         <ion-icon [color]="color" slot="start" name="alert"></ion-icon>
