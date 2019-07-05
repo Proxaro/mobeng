@@ -6,4 +6,6 @@ export class ToDo {
     public owner: string;
     public dateab: Date;
     public datebis: Date;
+    public project: number;
+    public prio: number;
 }

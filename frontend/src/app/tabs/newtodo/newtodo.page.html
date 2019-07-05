@@ -5,7 +5,7 @@
         <ion-icon color="primary" name="arrow-round-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="label">new ToDo</ion-title>
+    <ion-title class="label">New ToDo</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,7 +26,7 @@
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
-      <ion-label class="label">owner:</ion-label>
+      <ion-label class="label">Owner:</ion-label>
       <ion-select [(ngModel)]="newToDo.owner" >
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>

@@ -49,7 +49,7 @@ export class ProjectsPage implements OnInit {
 
   //on project edit button
   async edit(project: Project){
-    this.router.navigate(['/tabs/editproject', project.id]);
+    this.router.navigate(['/tabs/editproject', project[0]]);
   }
 
   public reloadAllProjects() {

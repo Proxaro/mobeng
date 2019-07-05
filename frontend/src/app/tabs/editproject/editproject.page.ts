@@ -40,7 +40,6 @@ export class EditprojectPage implements OnInit {
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;
-        console.log(this.users);
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/login');

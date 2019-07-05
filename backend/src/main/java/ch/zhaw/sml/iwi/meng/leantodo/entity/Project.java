@@ -74,12 +74,4 @@ public class Project {
         this.deadline = deadline;
     }
 
-    public List<ToDo> getToDos() {
-        return toDos;
-    }
-
-    public void setToDos(List<ToDo> toDos) {
-        this.toDos = toDos;
-    }
-
 }

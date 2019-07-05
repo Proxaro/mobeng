@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { ToDo } from '../../model/todo';
 import { User } from '../../model/user';
+import { UserService } from '../../services/user.service';
+import { TodoService } from 'src/app/services/todo.service';
+import { ProjectService } from '../../services/project.service';
+
 
 @Component({
   selector: 'app-edittodo',
@@ -10,17 +14,18 @@ import { User } from '../../model/user';
 })
 export class EdittodoPage implements OnInit {
 
-  number: number;
+  number: number = 1;
   color: string;
-  
-  constructor(private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) { }
+
+  toDoID = null;
+
+  constructor(private router: Router, private projectService: ProjectService, private todoService: TodoService, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   public users: User;
-  
+  public toDo: ToDo;
+
   onRangeChangeHandler() {
 
-    number: this.number = 1;
-      
     if (this.number <= 1) {
       this.color = 'success';
 
@@ -37,16 +42,28 @@ export class EdittodoPage implements OnInit {
   }
 
   ngOnInit() {
-    this.loadProject();
     this.onRangeChangeHandler()
+    this.loadProject();
+    
   }
 
   public loadProject() {
 
+    this.toDoID = this.activatedRoute.snapshot.paramMap.get("id");
+
+    this.todoService.getToDo(this.toDoID).subscribe(
+      (todo: ToDo) => {
+        this.toDo = todo;
+        console.log(this.toDo);
+      }, err => {
+        console.log(err);
+        this.router.navigateByUrl('/');
+      }
+    );
+
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;
-        console.log(this.users);
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/');

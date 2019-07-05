@@ -17,18 +17,16 @@
       <ion-input [(ngModel)]="newProject.title" ></ion-input>
     </ion-item>
 
-    <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Deadline:</ion-label>
-      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31" [(ngModel)]="newProject.deadline" >
+      <ion-datetime value=d displayFormat="DD MMMM YYYY" placeholder="deadline" min="2019-01-01" max="2999-12-31" [(ngModel)]="newProject.deadline">
       </ion-datetime>
     </ion-item>
 
-    <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Project Owner:</ion-label>
-      <ion-select [(ngModel)]="newProject.owner" >
-        <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i"  >
+      <ion-select [(ngModel)]="newProject.owner">
+        <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>
     </ion-item>

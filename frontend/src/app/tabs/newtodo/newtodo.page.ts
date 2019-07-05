@@ -17,12 +17,10 @@ export class NewtodoPage implements OnInit {
 
   public users: User;
   public newToDo: ToDo = new ToDo();
-  number: number;
+  number: number = 1;
   color: string;
   
   onRangeChangeHandler() {
-
-    number: this.number = 1;
       
     if (this.number <= 1) {
       this.color = 'success';

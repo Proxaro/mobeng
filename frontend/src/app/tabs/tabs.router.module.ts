@@ -53,7 +53,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'edittodo',
+        path: 'edittodo/:id',
         children: [
           {
             path: '',

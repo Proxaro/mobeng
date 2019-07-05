@@ -88,6 +88,8 @@ public class LeanToDo implements CommandLineRunner {
         toDo.setPrio(4);
         toDo.setDateAb(d);
         toDo.setDateBis(d);
+        toDo.setProject(5);
+        toDo.setArchived(false);
         toDoRepository.save(toDo);
 
         ToDo toDo1 = new ToDo();
@@ -96,6 +98,8 @@ public class LeanToDo implements CommandLineRunner {
         toDo1.setPrio(3);
         toDo1.setDateAb(d);
         toDo1.setDateBis(d);
+        toDo1.setProject(5);
+        toDo1.setArchived(false);
         toDoRepository.save(toDo1);
 
         ToDo toDo2 = new ToDo();
@@ -104,6 +108,8 @@ public class LeanToDo implements CommandLineRunner {
         toDo2.setPrio(2);
         toDo2.setDateAb(d);
         toDo2.setDateBis(d);
+        toDo2.setProject(6);
+        toDo2.setArchived(true);
         toDoRepository.save(toDo2);
 
         ToDo toDo3 = new ToDo();
@@ -112,6 +118,8 @@ public class LeanToDo implements CommandLineRunner {
         toDo3.setPrio(3);
         toDo3.setDateAb(d);
         toDo3.setDateBis(d);
+        toDo3.setProject(7);
+        toDo3.setArchived(false);
         toDoRepository.save(toDo3);
 
         Project project1 = new Project();
