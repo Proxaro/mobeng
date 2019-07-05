@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import ch.zhaw.sml.iwi.meng.leantodo.entity.Project;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.ProjectRepository;
+import ch.zhaw.sml.iwi.meng.leantodo.entity.ProjectList;
+import ch.zhaw.sml.iwi.meng.leantodo.entity.ProjectListRepository;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.ToDo;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.ToDoRepository;
 
@@ -19,10 +21,12 @@ public class ProjectController {
     private ProjectRepository projectRepository;
     @Autowired
     private ToDoRepository toDoRepository;
+    @Autowired
+    private ProjectListRepository projectListRepository;
 
     //get all active projects by owner
-    public List<Project> listAllProjects(String loginName) {
-        return projectRepository.findAllButArchivedByOwner(loginName);
+    public List<ProjectList> listAllProjects(String loginName) {
+        return projectListRepository.findAllButArchivedByOwner(loginName);
     }
 
     //get single project by ID

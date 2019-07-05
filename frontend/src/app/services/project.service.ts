@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Project } from '../model/project';
-import { projectionDef } from '@angular/core/src/render3';
+import { ProjectList } from '../model/projectList';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class ProjectService {
   constructor(private http: HttpClient, private router: Router) { }
   private apiUrl: string = 'http://localhost:8080';
 
-  public getAllProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.apiUrl + '/api/project', { withCredentials: true });
+  public getAllProjects(): Observable<ProjectList[]> {
+    return this.http.get<ProjectList[]>(this.apiUrl + '/api/project', { withCredentials: true });
   }
 
   public getProjects(){

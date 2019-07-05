@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import ch.zhaw.sml.iwi.meng.leantodo.controller.ProjectController;
 import ch.zhaw.sml.iwi.meng.leantodo.entity.Project;
+import ch.zhaw.sml.iwi.meng.leantodo.entity.ProjectList;
 
 @RestController
 public class ProjectEndpoint {
@@ -24,7 +25,7 @@ public class ProjectEndpoint {
 
     @RequestMapping(path = "/api/project", method = RequestMethod.GET)
     @PreAuthorize("isAuthenticated() AND hasRole('USER')")
-    public List<Project> getProjects(Principal principal) {
+    public List<ProjectList> getProjects(Principal principal) {
         return projectController.listAllProjects(principal.getName());
     }
 
