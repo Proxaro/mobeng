@@ -21,8 +21,8 @@ public class ProjectList {
     @Id
     private Long id;
     private String title;
-    private Long not_archived;
-    private Long archived;
+    private Long done;
+    private Long total;
 
     public Long getId() {
         return id;
@@ -40,20 +40,20 @@ public class ProjectList {
         this.title = title;
     }
 
-    public Long getNot_archived(){
-        return not_archived;
+    public Long getTotal(){
+        return total;
     }
 
-    public void setNot_archived(Long not_archived){
-        this.not_archived = not_archived;
+    public void setTotal(Long total){
+        this.total = total;
     }
 
-    public Long getArchived() {
-        return archived;
+    public Long getDone() {
+        return done;
     }
 
-    public void setArchived(Long archived) {
-        this.archived = archived;
+    public void setDone(Long done) {
+        this.done = done;
     }
 
 }
