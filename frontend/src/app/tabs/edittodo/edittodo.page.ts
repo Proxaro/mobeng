@@ -28,13 +28,13 @@ export class EdittodoPage implements OnInit {
 
   onRangeChangeHandler() {
 
-    if (this.number <= 1) {
+    if (this.toDo.prio <= 1) {
       this.color = 'success';
 
-    } else if (this.number == 2) {
+    } else if (this.toDo.prio == 2) {
       this.color = 'primary';
 
-    } else if (this.number == 3) {
+    } else if (this.toDo.prio == 3) {
       this.color = 'warning';
 
     } else {
@@ -46,12 +46,10 @@ export class EdittodoPage implements OnInit {
   ngOnInit() {
 
     this.loadProject();
-
+  
   }
 
   public loadProject() {
-
-
 
     this.toDoID = this.activatedRoute.snapshot.paramMap.get("id");
 
