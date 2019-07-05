@@ -27,7 +27,7 @@ export class ProjectsPage implements OnInit {
   }
 
   //on project finish button
-  async finish(project: Project){
+  async finish(project: Project) {
     console.log('Project Finished');
     project.archived = true;
     this.projectService.updateProject(project).subscribe(
@@ -48,7 +48,7 @@ export class ProjectsPage implements OnInit {
   }
 
   //on project edit button
-  async edit(project: Project){
+  async edit(project: Project) {
     this.router.navigate(['/tabs/editproject', project.id]);
   }
 

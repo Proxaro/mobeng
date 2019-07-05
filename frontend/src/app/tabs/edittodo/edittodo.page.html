@@ -17,15 +17,14 @@
       <ion-input placeholder="ToDo" [(ngModel)]="toDo.title"></ion-input>
     </ion-item>
 
-    
-
     <ion-item>
       <ion-label class="label">Project:</ion-label>
-      <ion-select  value='{{toDo.project}}' placeholder="Choose a project">
-        <ion-select-option value='{{project.title}}' *ngFor="let project of projects;  let i = index" [attr.data-index]="i">
-            {{project.title}}</ion-select-option>
-        </ion-select>
-      </ion-item>
+      <ion-select value='{{toDo.project}}' placeholder="Choose a project">
+        <ion-select-option value='{{project.title}}' *ngFor="let project of projects;  let i = index"
+          [attr.data-index]="i">
+          {{project.title}}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
@@ -39,21 +38,23 @@
     <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Start:</ion-label>
-      <ion-datetime value='{{toDo.dateAb}}' displayFormat="DD MMMM YYYY" placeholder="start" min="2019-01-01" max="2999-12-31">
+      <ion-datetime value='{{toDo.dateAb}}' displayFormat="DD MMMM YYYY" placeholder="start" min="2019-01-01"
+        max="2999-12-31">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">End:</ion-label>
-      <ion-datetime value='{{toDo.dateBis}}' displayFormat="DD MMMM YYYY" placeholder="end" min="2019-01-01" max="2999-12-31">
+      <ion-datetime value='{{toDo.dateBis}}' displayFormat="DD MMMM YYYY" placeholder="end" min="2019-01-01"
+        max="2999-12-31">
       </ion-datetime>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>
     <ion-item>
       <ion-label class="label">Priority:</ion-label>
-      <ion-range [color]="color" min="1" max="4" step="1" value='{{toDo.prio}}' pin="true" snaps ticks [(ngModel)]="number"
-        (ionChange)="onRangeChangeHandler()">
+      <ion-range [color]="color" min="1" max="4" step="1" value='{{toDo.prio}}' pin="true" snaps ticks
+        [(ngModel)]="number" (ionChange)="onRangeChangeHandler()">
         <ion-icon [color]="color" slot="start" name="alert"></ion-icon>
       </ion-range>
     </ion-item>

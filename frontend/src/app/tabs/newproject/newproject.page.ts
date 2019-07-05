@@ -18,7 +18,7 @@ export class NewprojectPage implements OnInit {
   public users: User;
   public newProject: Project = new Project();
 
-  ngOnInit(){
+  ngOnInit() {
     this.userService.getUsers().subscribe(
       (users: User) => {
         this.users = users;
@@ -30,7 +30,7 @@ export class NewprojectPage implements OnInit {
     );
   }
 
-  async presentToast(){
+  async presentToast() {
     console.log("test");
     const toast = await this.toastController.create({
       message: 'New Project has been added',
@@ -40,7 +40,7 @@ export class NewprojectPage implements OnInit {
     toast.present();
   }
 
-  async addProject(){
+  async addProject() {
     if (this.newProject.title != null && this.newProject.title != "") {
       this.projectService.addNewProject(this.newProject).subscribe(
         data => {

@@ -6,10 +6,7 @@
 
 <ion-content>
   <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="Pull to refresh"
-      refreshingSpinner="circles"
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
@@ -21,24 +18,27 @@
             <ion-col>
               {{project.title}}
             </ion-col>
-            <ion-col><ion-badge color="light">{{project.not_archived}}/{{project.archived}}</ion-badge></ion-col>
             <ion-col>
-                <ion-button icon-only (click)="edit(project)" float-right>
-                  <ion-icon name="create" ></ion-icon>
-                </ion-button>
+              <ion-badge color="light">{{project.not_archived}}/{{project.archived}}</ion-badge>
+            </ion-col>
+            <ion-col>
+              <ion-button icon-only (click)="edit(project)" float-right>
+                <ion-icon name="create"></ion-icon>
+              </ion-button>
               <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
               <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
-            --></ion-col>
+            -->
+            </ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
       <ion-item-options side="end">
         <ion-item-option color="danger" (click)="finish(project)">Finish</ion-item-option>
       </ion-item-options>
-      <ion-progress-bar  [value]="percent"></ion-progress-bar>
+      <ion-progress-bar [value]="percent"></ion-progress-bar>
     </ion-item-sliding>
   </ion-list>
-   <!--<ion-item>
+  <!--<ion-item>
     <ion-input type="text" placeholder="New Project Title" [(ngModel)]="newProject.title"></ion-input>
   </ion-item>-->
 
