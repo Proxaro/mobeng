@@ -18,6 +18,10 @@
             <ion-col>
               {{todo.title}}
             </ion-col>
+            <ion-col size="6" *ngIf="todo.dateBis !== null" class="deadline">
+              <ion-icon name="alarm"></ion-icon>
+              <ion-button>{{todo.dateBis}}</ion-button>
+            </ion-col>
             <ion-col>
               <ion-button icon-only (click)="edit(todo)" float-right>
                 <ion-icon name="create"></ion-icon>
