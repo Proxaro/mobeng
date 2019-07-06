@@ -15,19 +15,20 @@
       <ion-item>
         <ion-grid>
           <ion-row>
-            <ion-col>
-              {{project.title}}
+            <ion-col size="8">
+              <ion-row>
+                <ion-col size="12">
+                    {{project.title}}
+                </ion-col>
+                <ion-col size="12">
+                    <ion-badge color="light">{{project.done}}/{{project.total}} ToDos completed</ion-badge>
+                </ion-col>
+              </ion-row>
             </ion-col>
-            <ion-col class="deadline">
-              <ion-badge color="light">{{project.done}}/{{project.total}} Completed</ion-badge>
-            </ion-col>
-            <ion-col>
+            <ion-col size="4">
               <ion-button icon-only (click)="edit(project)" float-right>
                 <ion-icon name="create"></ion-icon>
               </ion-button>
-              <!--<ion-button color="danger" *ngIf="!todo.done && !todo.archived" (click)="finish(todo);$event.stopPropagation();">Finish</ion-button>
-              <ion-button color="success" *ngIf="todo.done && !todo.archived" (click)="archive(todo);$event.stopPropagation();">Archive</ion-button>
-            -->
             </ion-col>
           </ion-row>
         </ion-grid>
