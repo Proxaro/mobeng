@@ -21,11 +21,12 @@
                         {{todo.title}}
                     </ion-col>
                     <ion-col *ngIf="todo.dateBis !== null" class="deadline" size="12">
-                    <ion-item>
-                        <ion-icon name="alarm"></ion-icon>
-                        <ion-badge color="light" display-format="DD. MMMM YYYY"><ion-datetime value='{{todo.dateBis}}' display-format="DD. MMMM YYYY"></ion-datetime></ion-badge>
-                      </ion-item>
-                        
+                      <ion-list lines="none">
+                          <ion-item>
+                              <ion-icon name="alarm"></ion-icon>
+                              <ion-badge color="light" display-format="DD. MMMM YYYY"><ion-datetime value='{{todo.dateBis}}' display-format="DD. MMMM YYYY"></ion-datetime></ion-badge>
+                            </ion-item>
+                      </ion-list>
                     </ion-col>
                   </ion-row>
               </ion-col>

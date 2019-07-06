@@ -31,9 +31,6 @@ public class Project {
     @Temporal(TemporalType.DATE)
     private Date deadline;
 
-    @OneToMany
-    private List<ToDo> toDos = new ArrayList<>();
-
     public Long getId() {
         return id;
     }
