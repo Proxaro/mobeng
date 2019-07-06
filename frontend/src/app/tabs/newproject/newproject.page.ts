@@ -40,7 +40,7 @@ export class NewprojectPage implements OnInit {
   }
 
   async addProject(){
-    if (this.newProject.title != null && this.newProject.title != "" && this.newProject.deadline != null && this.newProject.owner != null) {
+    if (this.newProject.title != null && this.newProject.title != "" && this.newProject.owner != null) {
       this.projectService.addNewProject(this.newProject).subscribe(
         data => {
           this.newProject = new Project();

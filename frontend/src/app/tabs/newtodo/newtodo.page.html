@@ -14,12 +14,12 @@
 
     <ion-item>
       <ion-label class="label">Name:</ion-label>
-      <ion-input [(ngModel)]="newToDo.title" placeholder="Choose a name"></ion-input>
+      <ion-input [(ngModel)]="newToDo.title" placeholder="choose a name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">Project:</ion-label>
-      <ion-select [(ngModel)]="newToDo.project" placeholder="Choose a project">
+      <ion-select [(ngModel)]="newToDo.project" placeholder="choose a project">
         <ion-select-option value='{{project.id}}' *ngFor="let project of projects" [selected]="project.title">
           {{project.title}}</ion-select-option>
       </ion-select>
@@ -27,7 +27,7 @@
 
     <ion-item>
       <ion-label class="label">Owner:</ion-label>
-      <ion-select [(ngModel)]="newToDo.owner" placeholder="Choose an owner">
+      <ion-select [(ngModel)]="newToDo.owner" placeholder="choose an owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>
@@ -35,15 +35,15 @@
 
     <ion-item>
       <ion-label class="label">Start:</ion-label>
-      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="Pick a start date" min="2019-01-01" max="2999-12-31"
-        [(ngModel)]="newToDo.dateab">
+      <ion-datetime displayFormat="DD. MMMM YYYY" placeholder="pick a start date" min="2019-01-01" max="2999-12-31"
+        [(ngModel)]="newToDo.dateAb">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">End:</ion-label>
-      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="Pick an end date" min="2019-01-01" max="2999-12-31"
-        [(ngModel)]="newToDo.datebis">
+      <ion-datetime displayFormat="DD. MMMM YYYY" placeholder="pick an end date" min="2019-01-01" max="2999-12-31"
+        [(ngModel)]="newToDo.dateBis">
       </ion-datetime>
     </ion-item>
 
@@ -62,10 +62,3 @@
   </ion-list>
 
 </ion-content>
-
-<script language="javascript" type="text/javascript">
-
-  var d = new Date();
-  document.write(d.getDate() + "." + d.getMonth() + "." + (d.getYear() + 1900));
-  
-</script>

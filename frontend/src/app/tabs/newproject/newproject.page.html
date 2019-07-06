@@ -14,12 +14,12 @@
   <ion-list>
     <ion-item>
       <ion-label class="label">Name:</ion-label>
-      <ion-input [(ngModel)]="newProject.title"></ion-input>
+      <ion-input [(ngModel)]="newProject.title" placeholder="choose a title"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">Deadline:</ion-label>
-      <ion-datetime value=d displayFormat="DD. MMMM YYYY" placeholder="choose a date" min="2019-01-01" max="2999-12-31" [(ngModel)]="newProject.deadline">
+      <ion-datetime displayFormat="DD. MMMM YYYY" placeholder="pick a date" min="2019-01-01" max="2999-12-31" [(ngModel)]="newProject.deadline">
       </ion-datetime>
     </ion-item>
 
@@ -37,8 +37,3 @@
 
   </ion-list>
 </ion-content>
-
-<script language="javascript" type="text/javascript">
-  var d = new Date();
-  document.write(d.getDate() + "." + d.getMonth() + "." + (d.getYear() + 1900));
-</script>

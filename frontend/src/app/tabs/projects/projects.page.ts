@@ -4,6 +4,8 @@ import { Project } from '../../model/project';
 import { ProjectList } from '../../model/projectList';
 import { ProjectService } from '../../services/project.service';
 import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-projects',
@@ -12,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class ProjectsPage implements OnInit {
 
-  constructor(private router: Router, private projectService: ProjectService, public alertController: AlertController) { }
+  constructor(private toastController: ToastController, private router: Router, private projectService: ProjectService, public alertController: AlertController) { }
 
   public allProjects: ProjectList[] = [];
 
@@ -32,13 +34,22 @@ export class ProjectsPage implements OnInit {
     project.archived = true;
     this.projectService.updateProject(project).subscribe(
       data => {
-        console.log("Successfully updated project.");
+        this.presentToast("YAY! Project completed", "success");
         this.reloadAllProjects();
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/login');
       }
     );
+  }
+
+  async presentToast(text: string, type: string){
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 2000,
+      color: type
+    });
+    toast.present();
   }
 
   //refresh projects

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToDo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
 import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class TodoPage implements OnInit {
 
-  constructor(private router: Router, private toDoService: TodoService, public alertController: AlertController) { }
+  constructor(private toastController: ToastController, private router: Router, private toDoService: TodoService, public alertController: AlertController) { }
 
   public allToDos: ToDo[] = [];
   public newToDo: ToDo = new ToDo();
@@ -33,13 +34,22 @@ export class TodoPage implements OnInit {
   public updateToDo(toDo: ToDo) {
     this.toDoService.updateToDo(toDo).subscribe(
       data => {
-        console.log("Successfully updated todo.");
+        this.presentToast("YAY! ToDo completed", "success");
         this.reloadAllToDos();
       }, err => {
         console.log(err);
         this.router.navigateByUrl('/login');
       }
     );
+  }
+
+  async presentToast(text: string, type: string){
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 2000,
+      color: type
+    });
+    toast.present();
   }
 
   //refresh todos

@@ -14,12 +14,12 @@
 
     <ion-item>
       <ion-label class="label">Name:</ion-label>
-      <ion-input placeholder="ToDo" [(ngModel)]="toDo.title"></ion-input>
+      <ion-input placeholder="ToDo" [(ngModel)]="toDo.title" placeholder="choose a title"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">Project:</ion-label>
-      <ion-select [(ngModel)]="toDo.project" >
+      <ion-select [(ngModel)]="toDo.project" placeholder="choose a project">
         <ion-select-option *ngFor="let project of projects" [(value)]="project.id" [selected]="project.title">
           {{project.title}}</ion-select-option>
       </ion-select>
@@ -27,7 +27,7 @@
 
     <ion-item>
       <ion-label class="label">ToDo Owner:</ion-label>
-      <ion-select value='{{toDo.owner}}' placeholder="Choose a owner" [(ngModel)]="toDo.owner">
+      <ion-select value='{{toDo.owner}}' placeholder="choose an owner" [(ngModel)]="toDo.owner">
         <ion-select-option value='{{users[i]}}' *ngFor="let user of users;  let i = index" [attr.data-index]="i">
           {{users[i]}}</ion-select-option>
       </ion-select>
@@ -35,14 +35,14 @@
 
     <ion-item>
       <ion-label class="label">Start:</ion-label>
-      <ion-datetime value='{{toDo.dateAb}}' displayFormat="DD. MMMM YYYY" placeholder="start" min="2019-01-01"
+      <ion-datetime value='{{toDo.dateAb}}' displayFormat="DD. MMMM YYYY" placeholder="pick a start date" min="2019-01-01"
         max="2999-12-31" [(ngModel)]="toDo.dateAb">
       </ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label class="label">End:</ion-label>
-      <ion-datetime value='{{toDo.dateBis}}' displayFormat="DD. MMMM YYYY" placeholder="end" min="2019-01-01"
+      <ion-datetime value='{{toDo.dateBis}}' displayFormat="DD. MMMM YYYY" placeholder="pick an end date" min="2019-01-01"
         max="2999-12-31" [(ngModel)]="toDo.dateBis">
       </ion-datetime>
     </ion-item>
