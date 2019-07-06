@@ -20,7 +20,7 @@
     <ion-item>
       <ion-label class="label">Project:</ion-label>
       <ion-select [(ngModel)]="toDo.project" >
-        <ion-select-option *ngFor="let project of projects" [(value)]="project.id">
+        <ion-select-option *ngFor="let project of projects" [(value)]="project.id" [selected]="project.title">
           {{project.title}}</ion-select-option>
       </ion-select>
     </ion-item>
