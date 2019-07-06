@@ -82,98 +82,6 @@ public class LeanToDo implements CommandLineRunner {
         u1.getRoles().add(r);
         userRepository.save(u1);
 
-        ToDo toDo = new ToDo();
-        toDo.setTitle("Steuerbehörde anrufen");
-        toDo.setOwner("user");
-        toDo.setPrio(4);
-        toDo.setDateAb(d);
-        toDo.setDateBis(d);
-        toDo.setProject(9);
-        toDo.setArchived(true);
-        toDoRepository.save(toDo);
-
-        ToDo toDo1 = new ToDo();
-        toDo1.setTitle("Dokumente sammeln");
-        toDo1.setOwner("user");
-        toDo1.setPrio(3);
-        toDo1.setDateAb(d);
-        toDo1.setDateBis(d);
-        toDo1.setProject(9);
-        toDo1.setArchived(false);
-        toDoRepository.save(toDo1);
-
-        ToDo toDo2 = new ToDo();
-        toDo2.setTitle("Daten eintragen");
-        toDo2.setOwner("user");
-        toDo2.setPrio(2);
-        toDo2.setDateAb(d);
-        toDo2.setDateBis(d);
-        toDo2.setProject(9);
-        toDo2.setArchived(false);
-        toDoRepository.save(toDo2);
-
-        ToDo toDo3 = new ToDo();
-        toDo3.setTitle("Beilagen zusenden");
-        toDo3.setOwner("user");
-        toDo3.setPrio(3);
-        toDo3.setDateAb(d);
-        toDo3.setDateBis(d);
-        toDo3.setProject(9);
-        toDo3.setArchived(false);
-        toDoRepository.save(toDo3);
-
-        ToDo toDo4 = new ToDo();
-        toDo4.setTitle("Location suchen");
-        toDo4.setOwner("user");
-        toDo4.setPrio(4);
-        toDo4.setDateAb(d);
-        toDo4.setDateBis(d);
-        toDo4.setProject(10);
-        toDo4.setArchived(false);
-        toDoRepository.save(toDo4);
-
-        ToDo toDo5 = new ToDo();
-        toDo5.setTitle("Programm aufstellen");
-        toDo5.setOwner("user");
-        toDo5.setPrio(1);
-        toDo5.setDateAb(d);
-        toDo5.setDateBis(d);
-        toDo5.setProject(10);
-        toDo5.setArchived(false);
-        toDoRepository.save(toDo5);
-
-        ToDo toDo6 = new ToDo();
-        toDo6.setTitle("Gäste einladen");
-        toDo6.setOwner("user");
-        toDo6.setPrio(3);
-        toDo6.setDateAb(d);
-        toDo6.setDateBis(d);
-        toDo6.setProject(10);
-        toDo6.setArchived(false);
-        toDoRepository.save(toDo6);
-
-        ToDo toDo7 = new ToDo();
-        toDo7.setTitle("Staubsaugen");
-        toDo7.setOwner("user");
-        toDo7.setPrio(2);
-        toDo7.setArchived(false);
-        toDoRepository.save(toDo7);
-
-        ToDo toDo8 = new ToDo();
-        toDo8.setTitle("Auto reinigen");
-        toDo8.setOwner("user");
-        toDo8.setPrio(3);
-        toDo8.setArchived(false);
-        toDoRepository.save(toDo8);
-
-        ToDo toDo9 = new ToDo();
-        toDo9.setTitle("Einkaufen");
-        toDo9.setOwner("user");
-        toDo9.setPrio(4);
-        toDo9.setDateBis(d);
-        toDo9.setArchived(false);
-        toDoRepository.save(toDo9);
-
         Project project1 = new Project();
         project1.setTitle("Steuererklärung ausfüllen");
         project1.setOwner("user");
@@ -201,5 +109,99 @@ public class LeanToDo implements CommandLineRunner {
         project4.setArchived(false);
         project4.setDeadline(d);
         projectRepository.save(project4);
+
+        ToDo toDo = new ToDo();
+        toDo.setTitle("Steuerbehörde anrufen");
+        toDo.setOwner("user");
+        toDo.setPrio(4);
+        toDo.setDateAb(d);
+        toDo.setDateBis(d);
+        toDo.setProject(1);
+        toDo.setArchived(true);
+        toDoRepository.save(toDo);
+
+        ToDo toDo1 = new ToDo();
+        toDo1.setTitle("Dokumente sammeln");
+        toDo1.setOwner("user");
+        toDo1.setPrio(3);
+        toDo1.setDateAb(d);
+        toDo1.setDateBis(d);
+        toDo1.setProject(1);
+        toDo1.setArchived(false);
+        toDoRepository.save(toDo1);
+
+        ToDo toDo2 = new ToDo();
+        toDo2.setTitle("Daten eintragen");
+        toDo2.setOwner("user");
+        toDo2.setPrio(2);
+        toDo2.setDateAb(d);
+        toDo2.setDateBis(d);
+        toDo2.setProject(1);
+        toDo2.setArchived(false);
+        toDoRepository.save(toDo2);
+
+        ToDo toDo3 = new ToDo();
+        toDo3.setTitle("Beilagen zusenden");
+        toDo3.setOwner("user");
+        toDo3.setPrio(3);
+        toDo3.setDateAb(d);
+        toDo3.setDateBis(d);
+        toDo3.setProject(1);
+        toDo3.setArchived(false);
+        toDoRepository.save(toDo3);
+
+        ToDo toDo4 = new ToDo();
+        toDo4.setTitle("Location suchen");
+        toDo4.setOwner("user");
+        toDo4.setPrio(4);
+        toDo4.setDateAb(d);
+        toDo4.setDateBis(d);
+        toDo4.setProject(2);
+        toDo4.setArchived(false);
+        toDoRepository.save(toDo4);
+
+        ToDo toDo5 = new ToDo();
+        toDo5.setTitle("Programm aufstellen");
+        toDo5.setOwner("user");
+        toDo5.setPrio(1);
+        toDo5.setDateAb(d);
+        toDo5.setDateBis(d);
+        toDo5.setProject(2);
+        toDo5.setArchived(false);
+        toDoRepository.save(toDo5);
+
+        ToDo toDo6 = new ToDo();
+        toDo6.setTitle("Gäste einladen");
+        toDo6.setOwner("user");
+        toDo6.setPrio(3);
+        toDo6.setDateAb(d);
+        toDo6.setDateBis(d);
+        toDo6.setProject(2);
+        toDo6.setArchived(false);
+        toDoRepository.save(toDo6);
+
+        ToDo toDo7 = new ToDo();
+        toDo7.setTitle("Staubsaugen");
+        toDo7.setOwner("user");
+        toDo7.setPrio(2);
+        toDo7.setArchived(false);
+        toDoRepository.save(toDo7);
+
+        ToDo toDo8 = new ToDo();
+        toDo8.setTitle("Auto reinigen");
+        toDo8.setOwner("user");
+        toDo8.setPrio(3);
+        toDo8.setArchived(false);
+        toDoRepository.save(toDo8);
+
+        ToDo toDo9 = new ToDo();
+        toDo9.setTitle("Einkaufen");
+        toDo9.setOwner("user");
+        toDo9.setPrio(4);
+        toDo9.setDateBis(d);
+        toDo9.setArchived(false);
+        toDoRepository.save(toDo9);
+
+ 
     }
 }
